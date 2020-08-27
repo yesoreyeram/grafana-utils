@@ -1,37 +1,36 @@
-import { Application, Router } from "https://deno.land/x/oak/mod.ts";
 import { parse } from "https://deno.land/std/flags/mod.ts";
+import { Application, Router } from "https://deno.land/x/oak/mod.ts";
 
 const args = parse(Deno.args);
 const port = args.port || 8080;
+const BANNER = `Simple Grafana Deno REST API Server.\nRefer https://github.com/yesoreyeram/grafana-simple-deno-api-backend for more details.`;
+
 const app = new Application();
 const router = new Router();
 
 router.all("/", async (ctx: any) => {
-    ctx.response.body = "Simple Grafana Deno REST API Server";
+    ctx.response.body = BANNER;
 })
-router.all("/search", async (ctx: any) => {
+router.post("/search", async (ctx: any) => {
     if (ctx.request.hasBody) {
         const body = await ctx.request.body({ type: 'json' }).value;
-        if (body.target) {
-            switch (body.target) {
-                case "Servers()":
-                    ctx.response.body = ["Server 1", "Server 2", "Server 3"];
-                    break;
-                case "Teams()":
-                    ctx.response.body = ["Team A", "Team B"];
-                    break;
-                default:
-                    ctx.response.body = ["cpu", "memory"];
-                    break;
-            }
-        } else {
-            ctx.response.body = ["cpu", "memory"];
+        switch (body.target) {
+            case "Servers()":
+                ctx.response.body = ["Server 1", "Server 2", "Server 3"];
+                break;
+            case "Teams()":
+                ctx.response.body = ["Team A", "Team B"];
+                break;
+            default:
+                ctx.response.body = ["cpu", "memory"];
+                break;
         }
     } else {
-        ctx.response.body = ["cpu", "memory"];
+        ctx.response.status = 404;
+        ctx.response.body = `Requested route not found.\n\n${BANNER}`;
     }
 })
-router.all("/query", async (ctx: any) => {
+router.post("/query", async (ctx: any) => {
     if (ctx.request.hasBody) {
         const body = await ctx.request.body({ type: 'json' }).value;
         const startTime = new Date(body.range.from).getTime();
@@ -65,10 +64,10 @@ router.all("/query", async (ctx: any) => {
         ctx.response.body = result;
     } else {
         ctx.response.status = 404;
-        ctx.response.body = "Not Found"
+        ctx.response.body = `Requested route not found.\n\n${BANNER}`;
     }
 })
-router.all("/annotations", async (ctx: any) => {
+router.post("/annotations", async (ctx: any) => {
     if (ctx.request.hasBody) {
         const body = await ctx.request.body({ type: 'json' }).value;
         const startTime = new Date(body.range.from).getTime();
@@ -87,7 +86,7 @@ router.all("/annotations", async (ctx: any) => {
         ctx.response.body = annotations;
     } else {
         ctx.response.status = 404;
-        ctx.response.body = "Not Found"
+        ctx.response.body = `Requested route not found.\n\n${BANNER}`;
     }
 })
 
@@ -101,7 +100,7 @@ app.use(router.routes());
 app.use(router.allowedMethods());
 app.use((ctx: any) => {
     ctx.response.status = 404;
-    ctx.response.body = "Not found";
+    ctx.response.body = `Requested route not found.\n\n${BANNER}`;
 })
 
 console.log(`Grafana API Server running on port ${port}`);
