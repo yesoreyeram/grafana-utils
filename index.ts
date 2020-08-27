@@ -38,13 +38,15 @@ router.post("/query", async (ctx: any) => {
         var result: any[] = [];
         body.targets.forEach((target: any) => {
             if (target.type === 'timeserie') {
-                let dataPointTime = endTime;
+                let dataPointTime = startTime;
                 const datapoints: any[] = [];
-                while (dataPointTime > startTime) {
+                let value = ([0, 20, 50, 70][Math.floor(Math.random() * 4)]);
+                while (dataPointTime < endTime) {
+                    value += ([-1, 0, 1][Math.floor(Math.random() * 3)])
                     datapoints.push([
-                        Math.random() * 100, endTime - (datapoints.length * 60 * 1000)
+                        value, startTime + (datapoints.length * 60 * 1000)
                     ]);
-                    dataPointTime = dataPointTime - (60 * 1000)
+                    dataPointTime = dataPointTime + (60 * 1000)
                 }
                 result.push({
                     target: target.target,
