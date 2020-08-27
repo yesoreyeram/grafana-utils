@@ -17,6 +17,8 @@ deno run --allow-net https://raw.githubusercontent.com/yesoreyeram/grafana-simpl
 
 Running from local
 ```
+git clone https://github.com/yesoreyeram/grafana-simple-deno-api-backend.git
+cd grafana-simple-deno-api-backend
 deno run --allow-net index.ts --port 8080
 ```
 
