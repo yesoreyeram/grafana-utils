@@ -10,7 +10,26 @@ router.all("/", async (ctx: any) => {
     ctx.response.body = "Simple Grafana Deno REST API Server";
 })
 router.all("/search", async (ctx: any) => {
-    ctx.response.body = ["cpu", "memory"];
+    if (ctx.request.hasBody) {
+        const body = await ctx.request.body({ type: 'json' }).value;
+        if (body.target) {
+            switch (body.target) {
+                case "Servers()":
+                    ctx.response.body = ["Server 1", "Server 2", "Server 3"];
+                    break;
+                case "Teams()":
+                    ctx.response.body = ["Team A", "Team B"];
+                    break;
+                default:
+                    ctx.response.body = ["cpu", "memory"];
+                    break;
+            }
+        } else {
+            ctx.response.body = ["cpu", "memory"];
+        }
+    } else {
+        ctx.response.body = ["cpu", "memory"];
+    }
 })
 router.all("/query", async (ctx: any) => {
     if (ctx.request.hasBody) {
