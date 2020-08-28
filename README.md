@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="240" height="200" src="https://user-images.githubusercontent.com/153843/91555527-1399d100-e929-11ea-8ab3-31742977f317.png"/>
+    <a href="https://yesoreyeram.github.io/grafana-simple-deno-api-backend"><img width="240" height="200" src="https://user-images.githubusercontent.com/153843/91555527-1399d100-e929-11ea-8ab3-31742977f317.png"/></a>
 </p>
 <p align="center">
     <h1 align="center">Grafana Deno JSON backend</h1> 
@@ -8,8 +8,8 @@
     Deno based simple backend server for Grafana JSON Datasource.
 </p>
 <p align="center">
-    <a><img src="https://github.com/yesoreyeram/grafana-simple-deno-api-backend/workflows/CI/badge.svg"/></a>
-    <a><img src="https://img.shields.io/github/issues/yesoreyeram/grafana-simple-deno-api-backend"/></a>
+    <a href="https://github.com/yesoreyeram/grafana-simple-deno-api-backend/actions?query=workflow%3ACI" target="_blank"><img src="https://github.com/yesoreyeram/grafana-simple-deno-api-backend/workflows/CI/badge.svg"/></a>
+    <a href="https://github.com/yesoreyeram/grafana-simple-deno-api-backend/issues" target="_blank"><img src="https://img.shields.io/github/issues/yesoreyeram/grafana-simple-deno-api-backend"/></a>
 </p>
 
 ## Features
