@@ -1,6 +1,7 @@
 import { Context } from "./../deps.ts";
 import { BANNER } from "./../config.ts";
-import { queryResult, dataPoint, grafanaQueryTarget } from "./../types.d.ts";
+import { queryResult, grafanaQueryTarget } from "./../types.d.ts";
+import * as MOCK_DATA from "./../data.ts";
 
 export const queryRoute = async (ctx: Context) => {
   if (ctx.request.hasBody) {
@@ -10,20 +11,9 @@ export const queryRoute = async (ctx: Context) => {
     var result: queryResult[] = [];
     body.targets.forEach((target: grafanaQueryTarget) => {
       if (target.type === "timeserie") {
-        let dataPointTime = startTime;
-        const datapoints: dataPoint[] = [];
-        let value = ([0, 20, 50, 70][Math.floor(Math.random() * 4)]);
-        while (dataPointTime < endTime) {
-          value += ([-1, 0, 1][Math.floor(Math.random() * 3)]);
-          datapoints.push([
-            value,
-            startTime + (datapoints.length * 60 * 1000),
-          ]);
-          dataPointTime = dataPointTime + (60 * 1000);
-        }
         result.push({
           target: target.target,
-          datapoints,
+          datapoints: MOCK_DATA.getRandomWalkDataPoints(startTime, endTime),
         });
       } else if (target.type === "table") {
         result.push({
@@ -31,11 +21,9 @@ export const queryRoute = async (ctx: Context) => {
             { text: "Server", type: "string" },
             { text: target.target, type: "number" },
           ],
-          rows: [
-            ["Server 1", Math.random() * 100],
-            ["Server 2", Math.random() * 100],
-            ["Server 3", Math.random() * 100],
-          ],
+          rows: MOCK_DATA.SERVERS.map((server) => {
+            return [server.name, Math.random() * 100];
+          }),
         });
       }
     });
