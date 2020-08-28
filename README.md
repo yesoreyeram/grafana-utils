@@ -1,6 +1,6 @@
 # Grafana Simple Deno HTTP API backend
 
-![Continuous Integration](https://github.com/yesoreyeram/grafana-simple-deno-api-backend/workflows/ci/badge.svg)
+[![Continuous Integration](https://github.com/yesoreyeram/grafana-simple-deno-api-backend/workflows/CI/badge.svg)](https://github.com/yesoreyeram/grafana-simple-deno-api-backend/actions?query=workflow%3ACI)
 
 Simple HTTP API backend server for Grafana based on Deno. Supported by [Grafana Simple JSON Datasource](https://grafana.com/grafana/plugins/grafana-simple-json-datasource).
 
