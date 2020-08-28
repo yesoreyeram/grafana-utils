@@ -1,5 +1,7 @@
 # Grafana Simple Deno HTTP API backend
 
+![ci](https://github.com/yesoreyeram/grafana-simple-deno-api-backend/workflows/ci/badge.svg)
+
 Simple HTTP API backend server for Grafana based on Deno. This Deno based grafana api server exposes the following endpoints
 
 * search
