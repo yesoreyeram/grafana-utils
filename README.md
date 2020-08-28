@@ -1,10 +1,20 @@
-# Grafana Simple Deno HTTP API backend
+<p align="center">
+    <h1 align="center">Grafana Deno JSON backend</h1> 
+</p>
+<p align="center">
+    <img width="240" height="200" src="https://user-images.githubusercontent.com/153843/91555527-1399d100-e929-11ea-8ab3-31742977f317.png"/>
+</p>
+<p align="center">
+    Deno based simple backend server for Grafana JSON Datasource.
+</p>
+<p align="center">
+    <a><img src="https://github.com/yesoreyeram/grafana-simple-deno-api-backend/workflows/CI/badge.svg"/></a>
+    <a><img src="https://img.shields.io/github/issues/yesoreyeram/grafana-simple-deno-api-backend"/></a>
+</p>
 
-[![Continuous Integration](https://github.com/yesoreyeram/grafana-simple-deno-api-backend/workflows/CI/badge.svg)](https://github.com/yesoreyeram/grafana-simple-deno-api-backend/actions?query=workflow%3ACI)
+## Features
 
 Simple HTTP API backend server for Grafana based on Deno. Supported by [Grafana Simple JSON Datasource](https://grafana.com/grafana/plugins/grafana-simple-json-datasource).
-
-![image](https://user-images.githubusercontent.com/153843/91518006-1b388600-e8e7-11ea-8f40-c9cba2b02bf9.png)
 
 This Deno based grafana api server exposes the following endpoints
 
@@ -16,20 +26,35 @@ This Deno based grafana api server exposes the following endpoints
 
 For more details about using this repo, refer the screenshots [here](https://github.com/yesoreyeram/grafana-simple-deno-api-backend/issues/1).
 
-## Starting the server
+## Installation
 
-Running directly from url
+### Pre-Requisites
+
+* Deno 1.x or higher
+
+### Running the server
+
+There are couple of ways you can start the server
+
+1. Running directly from url
 
 ```
 deno run --allow-net https://raw.githubusercontent.com/yesoreyeram/grafana-simple-deno-api-backend/master/mod.ts --port 8080
 ```
 
-Running from local
+2. Running from local
 
 ```
 git clone https://github.com/yesoreyeram/grafana-simple-deno-api-backend.git
 cd grafana-simple-deno-api-backend
 deno run --allow-net mod.ts --port 8080
 ```
+### Configuration
 
-**Note:** If the port argument is not provided, by default server will be running on port 8080.
+There are few command line flags you can pass while starting the server to customize the server.
+
+
+| Param | Description| 
+|-------|------------|
+| `--allow-net` | This is security flag required by deno. Otherwise, server will not able to access the port. |
+| `--port` | HTTP port to start the server. If not provided, server will try to start at port 8080 |
