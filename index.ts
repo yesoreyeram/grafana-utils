@@ -79,11 +79,11 @@ router.post("/annotations", async (ctx: any) => {
         while (dataPointTime < endTime) {
             annotations.push({
                 title: `${body.annotation.query} ${annotations.length + 1}`,
-                time: startTime + (annotations.length * 10 * 60 * 1000) + 20000 + (Math.random() * 60 * 10000),
+                time: startTime + (annotations.length * ((endTime - startTime) / 3)) + (Math.random() * 5 * 60 * 10000),
                 text: `Description of event ${body.annotation.query} ${annotations.length + 1}`,
                 tags: ["Tag A", "Tag B", body.annotation.query]
             });
-            dataPointTime = dataPointTime + (10 * 60 * 1000) + 20000;
+            dataPointTime = dataPointTime + ((endTime - startTime) / 3) + 20000;
         }
         ctx.response.body = annotations;
     } else {
