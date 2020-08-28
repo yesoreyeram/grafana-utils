@@ -1,6 +1,6 @@
 # Grafana Simple Deno HTTP API backend
 
-![CI](https://github.com/yesoreyeram/grafana-simple-deno-api-backend/workflows/ci/badge.svg)
+![Continuous Integration](https://github.com/yesoreyeram/grafana-simple-deno-api-backend/workflows/ci/badge.svg)
 
 Simple HTTP API backend server for Grafana based on Deno. Supported by [Grafana Simple JSON Datasource](https://grafana.com/grafana/plugins/grafana-simple-json-datasource).
 
@@ -8,22 +8,24 @@ Simple HTTP API backend server for Grafana based on Deno. Supported by [Grafana 
 
 This Deno based grafana api server exposes the following endpoints
 
-* search
-* query
-* annotations
-* tag-keys
-* tag-values
+- `/search`
+- `/query`
+- `/annotations`
+- `/tag-keys`
+- `/tag-values`
 
 For more details about using this repo, refer the screenshots [here](https://github.com/yesoreyeram/grafana-simple-deno-api-backend/issues/1).
 
 ## Starting the server
 
 Running directly from url
+
 ```
 deno run --allow-net https://raw.githubusercontent.com/yesoreyeram/grafana-simple-deno-api-backend/master/mod.ts --port 8080
 ```
 
 Running from local
+
 ```
 git clone https://github.com/yesoreyeram/grafana-simple-deno-api-backend.git
 cd grafana-simple-deno-api-backend
