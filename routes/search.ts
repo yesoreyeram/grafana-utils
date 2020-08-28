@@ -1,6 +1,6 @@
 import { Context } from "./../deps.ts";
-import { BANNER } from "./../config.ts";
-import * as MOCK_DATA from "./../data.ts";
+import { BANNER } from "./../config/config.ts";
+import * as MOCK_DATA from "./../data/index.ts";
 
 export const searchRoute = async (ctx: Context) => {
   if (ctx.request.hasBody) {

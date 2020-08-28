@@ -1,5 +1,5 @@
 import { Context } from "./../deps.ts";
-import { BANNER } from "./../config.ts";
+import { BANNER } from "./../config/config.ts";
 import { annotationResult } from "./../types.d.ts";
 
 export const annotationsRoute = async (ctx: Context) => {

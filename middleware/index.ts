@@ -1,5 +1,5 @@
 import { Context, Middleware } from "./../deps.ts";
-import { BANNER } from "./../config.ts";
+import { BANNER } from "./../config/config.ts";
 
 export const setupResponseHeaders: Middleware = async (
   ctx: Context,

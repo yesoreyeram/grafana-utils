@@ -1,6 +1,6 @@
 import { Context } from "./../deps.ts";
-import { BANNER } from "./../config.ts";
-import * as MOCK_DATA from "./../data.ts";
+import { BANNER } from "./../config/config.ts";
+import * as MOCK_DATA from "./../data/index.ts";
 
 export const tagKeysRoute = async (ctx: Context) => {
   ctx.response.body = ["Servers", "Teams"].map((text: string) => {

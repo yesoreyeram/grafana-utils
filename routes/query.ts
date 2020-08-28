@@ -1,7 +1,7 @@
 import { Context } from "./../deps.ts";
-import { BANNER } from "./../config.ts";
+import { BANNER } from "./../config/config.ts";
 import { queryResult, grafanaQueryTarget } from "./../types.d.ts";
-import * as MOCK_DATA from "./../data.ts";
+import * as MOCK_DATA from "./../data/index.ts";
 
 export const queryRoute = async (ctx: Context) => {
   if (ctx.request.hasBody) {

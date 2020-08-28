@@ -1,5 +1,5 @@
-import { Router } from "./deps.ts";
-import * as routes from "./routes/index.ts";
+import { Router } from "./../deps.ts";
+import * as routes from "./index.ts";
 
 export const router = new Router();
 

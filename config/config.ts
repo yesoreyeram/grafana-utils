@@ -1,4 +1,4 @@
-import { parse } from "./deps.ts";
+import { parse } from "./../deps.ts";
 
 const args = parse(Deno.args);
 
