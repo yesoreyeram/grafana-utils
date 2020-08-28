@@ -20,3 +20,6 @@ jobs:
       - name: Check format
         if: matrix.os == 'ubuntu-latest'
         run: deno fmt --check
+      - name: Lint
+        if: matrix.os == 'ubuntu-latest'
+        run: deno lint --unstable

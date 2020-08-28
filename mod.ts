@@ -1,5 +1,11 @@
 import { parse } from "https://deno.land/std/flags/mod.ts";
-import { Application, Router } from "https://deno.land/x/oak/mod.ts";
+import { Application, Router, Context } from "https://deno.land/x/oak/mod.ts";
+import {
+  dataPoint,
+  queryResult,
+  grafanaQueryTarget,
+  annotationResult,
+} from "./types.d.ts";
 
 const args = parse(Deno.args);
 const port = args.port || 8080;
@@ -9,10 +15,10 @@ const BANNER =
 const app = new Application();
 const router = new Router();
 
-router.all("/", async (ctx: any) => {
+router.all("/", async (ctx: Context) => {
   ctx.response.body = BANNER;
 });
-router.post("/search", async (ctx: any) => {
+router.post("/search", async (ctx: Context) => {
   if (ctx.request.hasBody) {
     const body = await ctx.request.body({ type: "json" }).value;
     switch (body.target) {
@@ -31,16 +37,16 @@ router.post("/search", async (ctx: any) => {
     ctx.response.body = `Requested route not found.\n\n${BANNER}`;
   }
 });
-router.post("/query", async (ctx: any) => {
+router.post("/query", async (ctx: Context) => {
   if (ctx.request.hasBody) {
     const body = await ctx.request.body({ type: "json" }).value;
     const startTime = new Date(body.range.from).getTime();
     const endTime = new Date(body.range.to).getTime();
-    var result: any[] = [];
-    body.targets.forEach((target: any) => {
+    var result: queryResult[] = [];
+    body.targets.forEach((target: grafanaQueryTarget) => {
       if (target.type === "timeserie") {
         let dataPointTime = startTime;
-        const datapoints: any[] = [];
+        const datapoints: dataPoint[] = [];
         let value = ([0, 20, 50, 70][Math.floor(Math.random() * 4)]);
         while (dataPointTime < endTime) {
           value += ([-1, 0, 1][Math.floor(Math.random() * 3)]);
@@ -74,12 +80,12 @@ router.post("/query", async (ctx: any) => {
     ctx.response.body = `Requested route not found.\n\n${BANNER}`;
   }
 });
-router.post("/annotations", async (ctx: any) => {
+router.post("/annotations", async (ctx: Context) => {
   if (ctx.request.hasBody) {
     const body = await ctx.request.body({ type: "json" }).value;
     const startTime = new Date(body.range.from).getTime();
     const endTime = new Date(body.range.to).getTime();
-    var annotations: any[] = [];
+    var annotations: annotationResult[] = [];
     let dataPointTime = startTime;
     while (dataPointTime < endTime) {
       annotations.push({
@@ -100,7 +106,7 @@ router.post("/annotations", async (ctx: any) => {
   }
 });
 
-app.use(async (ctx, next) => {
+app.use(async (ctx: Context, next: () => Promise<void>) => {
   await next();
   ctx.response.headers.set("Access-Control-Allow-Origin", `*`);
   ctx.response.headers.set("Access-Control-Allow-Methods", `POST`);
@@ -111,7 +117,7 @@ app.use(async (ctx, next) => {
 });
 app.use(router.routes());
 app.use(router.allowedMethods());
-app.use((ctx: any) => {
+app.use((ctx: Context) => {
   ctx.response.status = 404;
   ctx.response.body = `Requested route not found.\n\n${BANNER}`;
 });
