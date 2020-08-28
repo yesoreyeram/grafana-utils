@@ -1,8 +1,8 @@
 <p align="center">
-    <h1 align="center">Grafana Deno JSON backend</h1> 
+    <img width="240" height="200" src="https://user-images.githubusercontent.com/153843/91555527-1399d100-e929-11ea-8ab3-31742977f317.png"/>
 </p>
 <p align="center">
-    <img width="240" height="200" src="https://user-images.githubusercontent.com/153843/91555527-1399d100-e929-11ea-8ab3-31742977f317.png"/>
+    <h1 align="center">Grafana Deno JSON backend</h1> 
 </p>
 <p align="center">
     Deno based simple backend server for Grafana JSON Datasource.
