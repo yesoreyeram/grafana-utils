@@ -17,7 +17,11 @@
             "dest": "/api/index.ts"
         },
         {
-            "src": "/tag-*",
+            "src": "/tag-keys",
+            "dest": "/api/index.ts"
+        },
+        {
+            "src": "/tag-values",
             "dest": "/api/index.ts"
         }
     ],
