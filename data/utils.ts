@@ -1,11 +1,15 @@
 import { dataPoint } from "./../types.d.ts";
 
+export const getRandomElementFromNumberArray = (array: number[]): number => {
+  return array[Math.floor(Math.random() * array.length)];
+};
+
 export const getRandomWalkDataPoints = (startTime: number, endTime: number) => {
   const datapoints: dataPoint[] = [];
   let dataPointTime = startTime;
-  let value = ([0, 20, 50, 70][Math.floor(Math.random() * 4)]);
+  let value = getRandomElementFromNumberArray([0, 20, 50, 70]);
   while (dataPointTime < endTime) {
-    value += ([-1, 0, 1][Math.floor(Math.random() * 3)]);
+    value += getRandomElementFromNumberArray([-1, 0, 1]);
     datapoints.push([
       value,
       startTime + (datapoints.length * 60 * 1000),

@@ -1,6 +1,20 @@
 import { assertEquals } from "./../test_deps.ts";
-import { getRandomWalkDataPoints } from "./utils.ts";
+import {
+  getRandomElementFromNumberArray,
+  getRandomWalkDataPoints,
+} from "./utils.ts";
 import { NAMESPACE } from "./../config/config.ts";
+
+Deno.test({
+  name: `${NAMESPACE}.Utils.getRandomElementFromNumberArray`,
+  fn: () => {
+    assertEquals(
+      [30, 20, -10].indexOf(getRandomElementFromNumberArray([30, 20, -10])) >
+        -1,
+      true,
+    );
+  },
+});
 
 Deno.test({
   name: `${NAMESPACE}.Mock.RandomWalk`,
