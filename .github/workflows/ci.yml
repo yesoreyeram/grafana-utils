@@ -31,5 +31,5 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}}
+          vercel-org-id: yesoreyeram
+          vercel-project-id: grafana-simple-deno-api-backend
