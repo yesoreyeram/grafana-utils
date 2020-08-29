@@ -1,27 +1,7 @@
 {
     "routes": [
         {
-            "src": "/",
-            "dest": "/api/index.ts"
-        },
-        {
-            "src": "/search",
-            "dest": "/api/index.ts"
-        },
-        {
-            "src": "/query",
-            "dest": "/api/index.ts"
-        },
-        {
-            "src": "/annotations",
-            "dest": "/api/index.ts"
-        },
-        {
-            "src": "/tag-keys",
-            "dest": "/api/index.ts"
-        },
-        {
-            "src": "/tag-values",
+            "src": "/(.*)",
             "dest": "/api/index.ts"
         }
     ],
