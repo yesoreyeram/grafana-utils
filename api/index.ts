@@ -1,5 +1,4 @@
 import { Application } from "./../deps.ts";
-import { PORT } from "./../config/config.ts";
 import { setupResponseHeaders, NOTFOUND } from "./../middleware/index.ts";
 import { router } from "./../routes/router.ts";
 
