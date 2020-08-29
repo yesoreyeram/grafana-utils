@@ -15,5 +15,6 @@ export const setupResponseHeaders: Middleware = async (
 };
 export const NOTFOUND: Middleware = (ctx: Context) => {
   ctx.response.status = 404;
-  ctx.response.body = `Requested route not found. For search, query, annotations, tag-keys and tag-values use HTTP POST method.\n\n${BANNER}`;
+  ctx.response.body =
+    `Requested route not found. For search, query, annotations, tag-keys and tag-values use HTTP POST method.\n\n${BANNER}`;
 };
