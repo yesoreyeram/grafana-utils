@@ -2,7 +2,7 @@
     "routes": [
         {
             "src": "/",
-            "dest": "/mod.ts"
+            "dest": "/api/index.ts"
         }
     ],
     "functions": {
