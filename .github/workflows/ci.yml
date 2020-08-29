@@ -26,3 +26,10 @@ jobs:
         run: deno lint --unstable
       - name: Test
         run: deno test
+      - name: Deploy vercel
+        uses: amondnet/vercel-action@v19        
+        if: matrix.os == 'ubuntu-latest'
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}}

@@ -15,5 +15,8 @@
         "env": {
             "DENO_TSCONFIG": "api/tsconfig.json"
         }
+    },
+    "github": {
+        "enabled": false
     }
 }
