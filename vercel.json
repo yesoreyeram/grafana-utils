@@ -2,18 +2,18 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "/api/index.ts"
+            "dest": "/mod.ts"
         }
     ],
     "functions": {
         "**/*.[jt]s": {
             "runtime": "vercel-deno@0.6.1",
-            "includeFiles": "api/**/*.json"
+            "includeFiles": "**/*.json"
         }
     },
     "build": {
         "env": {
-            "DENO_TSCONFIG": "api/tsconfig.json"
+            "DENO_TSCONFIG": "tsconfig.json"
         }
     },
     "github": {
