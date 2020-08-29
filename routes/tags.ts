@@ -28,6 +28,7 @@ export const tagValuesRoute = async (ctx: Context) => {
     }
   } else {
     ctx.response.status = 404;
-    ctx.response.body = `Requested route not found.\n\n${BANNER}`;
+    ctx.response.body =
+      `Requested route not found. User POST method instead.\n\n${BANNER}`;
   }
 };

@@ -26,6 +26,12 @@ This Deno based grafana api server exposes the following endpoints
 
 For more details about using this repo, refer the screenshots [here](https://github.com/yesoreyeram/grafana-simple-deno-api-backend/issues/1).
 
+## Hosted Server
+
+For demo purposes, this backend server is hosted in vercel. Latest version is hosted in the following URL.
+
+[https://grafana-simple-deno-api-backend.vercel.app/](https://grafana-simple-deno-api-backend.vercel.app/)
+
 ## Installation
 
 ### Pre-Requisites

@@ -24,6 +24,7 @@ export const annotationsRoute = async (ctx: Context) => {
     ctx.response.body = annotations;
   } else {
     ctx.response.status = 404;
-    ctx.response.body = `Requested route not found.\n\n${BANNER}`;
+    ctx.response.body =
+      `Requested route not found. User POST method instead.\n\n${BANNER}`;
   }
 };
