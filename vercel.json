@@ -1,0 +1,13 @@
+{
+    "routes": [
+        {
+            "src": "/",
+            "dest": "/mod.ts"
+        }
+    ],
+    "functions": {
+        "*/*.[jt]s": {
+            "runtime": "vercel-deno@0.6.1"
+        }
+    }
+}
