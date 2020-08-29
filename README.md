@@ -26,13 +26,23 @@ This Deno based grafana api server exposes the following endpoints
 
 For more details about using this repo, refer the screenshots [here](https://github.com/yesoreyeram/grafana-simple-deno-api-backend/issues/1).
 
+## Custom TimeSeries data
+
+| Series Name | Result |
+|-------------|--------|
+| foo         | Single random walk series called foo | 
+| bar         | Single random walk series called bar | 
+| RandomWalk() | Single random walk series with random name |
+| RandomWalk(10) | 10 random walk series with random names |
+| RandomWalk(3,Server) | 3 random walk series with the name 'Server 1', 'Server 2' and 'Server 3' |
+
 ## Hosted Server
 
 For demo purposes, this backend server is hosted in vercel. Latest version is hosted in the following URL.
 
 [https://grafana-simple-deno-api-backend.vercel.app/](https://grafana-simple-deno-api-backend.vercel.app/)
 
-## Installation
+## Local Installation
 
 ### Pre-Requisites
 

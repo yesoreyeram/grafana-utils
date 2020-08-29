@@ -2,6 +2,7 @@ import { Context } from "./../deps.ts";
 import { BANNER } from "./../config/config.ts";
 import { queryResult, grafanaQueryTarget } from "./../types.d.ts";
 import * as MOCK_DATA from "./../data/index.ts";
+import { getTimeSeriesResults } from "./../api/timeseries.ts";
 
 export const queryRoute = async (ctx: Context) => {
   if (ctx.request.hasBody) {
@@ -11,10 +12,11 @@ export const queryRoute = async (ctx: Context) => {
     var result: queryResult[] = [];
     body.targets.forEach((target: grafanaQueryTarget) => {
       if (target.type === "timeserie") {
-        result.push({
-          target: target.target,
-          datapoints: MOCK_DATA.getRandomWalkDataPoints(startTime, endTime),
-        });
+        result = getTimeSeriesResults(
+          result,
+          target.target,
+          { startTime, endTime },
+        );
       } else if (target.type === "table") {
         result.push({
           columns: [

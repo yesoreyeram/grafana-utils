@@ -4,6 +4,10 @@ export const getRandomElementFromNumberArray = (array: number[]): number => {
   return array[Math.floor(Math.random() * array.length)];
 };
 
+export const getRandomElementFromStringArray = (array: string[]): string => {
+  return array[Math.floor(Math.random() * array.length)];
+};
+
 export const getRandomWalkDataPoints = (startTime: number, endTime: number) => {
   const datapoints: dataPoint[] = [];
   let dataPointTime = startTime;
