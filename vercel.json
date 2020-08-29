@@ -7,8 +7,7 @@
     ],
     "functions": {
         "**/*.[jt]s": {
-            "runtime": "vercel-deno@0.6.1",
-            "includeFiles": "**/*.json"
+            "runtime": "vercel-deno@0.6.1"
         }
     },
     "build": {
