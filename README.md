@@ -45,6 +45,7 @@ For more details about using this repo, refer the screenshots [here](https://git
 | Step(10,,5) | Random series starting from 10 and increment by 5 for each data point | 
 | Pattern(HeartBeat,0,0,0,-3,-2,4,0,0) | Repeat the pattern 0,0,0,-3,-2,4,0,0 as series 'Heartbeat' over the time range |
 | Pattern(,0,1,2,1) | Repeat the pattern 0,1,2,1 as random series over the time range |
+| Expression(Foo,multiply:0.1,cos,abs,max:0.3) | Series foo which is equivalent of max(abs(cos(x*0.1)),0.3) where x is the index of the datapoint starting from 0.<br/>Multiple expressions can be added. <br/>Valid expressions are add, minus, multiply, divide, abs, pow, sqrt, max, min, sin, cos, tan, ceil, floor and round|
 
 ## Hosted Server
 
