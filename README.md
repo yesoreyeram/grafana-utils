@@ -35,6 +35,9 @@ For more details about using this repo, refer the screenshots [here](https://git
 | RandomWalk() | Single random walk series with random name |
 | RandomWalk(10) | 10 random walk series with random names |
 | RandomWalk(3,Server) | 3 random walk series with the name 'Server 1', 'Server 2' and 'Server 3' |
+| FlatLine()   | Flat series with constant 0 as value over the period with random series name |
+| FlatLine(16)   | Flat series with constant 16 as value over the period with random series name |
+| FlatLine(7,Rainbow)   | Flat series with constant 7 as value over the period with 'Rainbow' as series name |
 
 ## Hosted Server
 

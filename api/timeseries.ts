@@ -27,6 +27,21 @@ export const getTimeSeriesResults = (
         ),
       });
     }
+  } else if (query.startsWith("FlatLine(") && query.endsWith(")")) {
+    const startFrom =
+      (+(query.replace("FlatLine(", "").replace(")", "")).split(",")[0]) || 0;
+    const seriesName =
+      (query.replace("FlatLine(", "").replace(")", "")).split(",")[1] ||
+      MOCK_DATA.getRandomElementFromStringArray(MOCK_DATA.RANDOM_WORDS);
+    result.push({
+      target: seriesName,
+      datapoints: MOCK_DATA.getRandomWalkDataPoints(
+        options.startTime,
+        options.endTime,
+        [startFrom],
+        [0],
+      ),
+    });
   } else {
     result.push({
       target: query,

@@ -8,12 +8,17 @@ export const getRandomElementFromStringArray = (array: string[]): string => {
   return array[Math.floor(Math.random() * array.length)];
 };
 
-export const getRandomWalkDataPoints = (startTime: number, endTime: number) => {
+export const getRandomWalkDataPoints = (
+  startTime: number,
+  endTime: number,
+  startFrom: number[] = [0, 20, 50, 70],
+  steps: number[] = [-1, 0, 1],
+) => {
   const datapoints: dataPoint[] = [];
   let dataPointTime = startTime;
-  let value = getRandomElementFromNumberArray([0, 20, 50, 70]);
+  let value = getRandomElementFromNumberArray(startFrom);
   while (dataPointTime < endTime) {
-    value += getRandomElementFromNumberArray([-1, 0, 1]);
+    value += getRandomElementFromNumberArray(steps);
     datapoints.push([
       value,
       startTime + (datapoints.length * 60 * 1000),
