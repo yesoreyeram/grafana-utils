@@ -38,6 +38,13 @@ For more details about using this repo, refer the screenshots [here](https://git
 | FlatLine()   | Flat series with constant 0 as value over the period with random series name |
 | FlatLine(16)   | Flat series with constant 16 as value over the period with random series name |
 | FlatLine(7,Rainbow)   | Flat series with constant 7 as value over the period with 'Rainbow' as series name |
+| Step() | Random series starting from 0 and increment by 1 for each data point | 
+| Step(10) | Random series starting from 10 and increment by 1 for each data point | 
+| Step(10,Speed) | Series called 'Speed' starting from 10 and increment by 1 for each data point | 
+| Step(10,Speed,5) | Series called 'Speed' starting from 10 and increment by 5 for each data point | 
+| Step(10,,5) | Random series starting from 10 and increment by 5 for each data point | 
+| Pattern(HeartBeat,0,0,0,-3,-2,4,0,0) | Repeat the pattern 0,0,0,-3,-2,4,0,0 as series 'Heartbeat' over the time range |
+| Pattern(,0,1,2,1) | Repeat the pattern 0,1,2,1 as random series over the time range |
 
 ## Hosted Server
 
