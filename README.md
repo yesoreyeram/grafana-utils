@@ -12,17 +12,9 @@
     <a href="https://github.com/yesoreyeram/grafana-simple-deno-api-backend/issues" target="_blank"><img src="https://img.shields.io/github/issues/yesoreyeram/grafana-simple-deno-api-backend"/></a>
 </p>
 
-## Features
+Simple HTTP API backend server for Grafana based on Deno. Supported by [Grafana Simple JSON Datasource](https://grafana.com/grafana/plugins/grafana-simple-json-datasource). This will be useful for prototyping dashboards, demo dashboards and while building plugins.
 
-Simple HTTP API backend server for Grafana based on Deno. Supported by [Grafana Simple JSON Datasource](https://grafana.com/grafana/plugins/grafana-simple-json-datasource).
-
-This Deno based grafana api server exposes the following endpoints
-
-- `/search`
-- `/query`
-- `/annotations`
-- `/tag-keys`
-- `/tag-values`
+![image](https://user-images.githubusercontent.com/153843/91668195-c709ed80-eb02-11ea-83d5-15bacfbf037d.png)
 
 For more details about using this repo, refer the screenshots [here](https://github.com/yesoreyeram/grafana-simple-deno-api-backend/issues/1).
 
@@ -85,3 +77,13 @@ There are few command line flags you can pass while starting the server to custo
 |-------|------------|
 | `--allow-net` | This is security flag required by deno. Otherwise, server will not able to access the port. |
 | `--port` | HTTP port to start the server. If not provided, server will try to start at port 8080 |
+
+### Features
+
+This Deno based grafana api server exposes the following endpoints
+
+- `/search`
+- `/query`
+- `/annotations`
+- `/tag-keys`
+- `/tag-values`
