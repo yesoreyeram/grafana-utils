@@ -6,4 +6,8 @@ export {
 export { SERVERS } from "./servers.ts";
 export { TEAMS } from "./teams.ts";
 import { LOREM } from "./lorem.ts";
-export const RANDOM_WORDS = [...new Set(LOREM.split(" "))];
+export const RANDOM_WORDS = [
+  ...new Set(
+    LOREM.replace(/\n/g, "").split(" ").map((a) => a.trim().toLowerCase()),
+  ),
+];
