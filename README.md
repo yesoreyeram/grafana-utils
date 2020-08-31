@@ -48,6 +48,21 @@ With the above datasource URL, You can use the datasource without any local inst
 | Pattern(,0,1,2,1)                            | Repeat the pattern 0,1,2,1 as random series over the time range                                                                                                                                                                                                                           |
 | Expression(Foo,multiply:0.1,cos,abs,max:0.3) | Series foo which is equivalent of max(abs(cos(x\*0.1)),0.3) where x is the index of the datapoint starting from 0.<br/>Multiple expressions can be added. <br/>Valid expressions are random, add, minus, multiply, divide, abs, pow, sqrt, max, min, sin, cos, tan, ceil, floor and round |
 
+###  CSV datasource
+
+You can call any csv url and the api server will return the data to grafana.
+
+| Format | Sample Query | Description |
+|--------|--------------|-------------|
+| CSV(`YOUR_CSV_URL`) | CSV(https://gist.githubusercontent.com/yesoreyeram/64a46b02f0bf87cb527d6270dd84ea47/raw/f4d021529650be41f594cda73e41a6242fb2ea27/sample.csv) | Read the sample.csv and returns to grafana |
+| CSV(`YOUR_CSV_URL`, headers:column1:column2) | CSV(https://gist.githubusercontent.com/yesoreyeram/64a46b02f0bf87cb527d6270dd84ea47/raw/85bfe906d5eda20611496854e22ecc57a901bf4c/sample-without-header.csv, headers:Country Name:city Name) | If the csv file doesn't contain headers, provide the headers as option. You can specify n number of columns with `:` separated. |
+
+##### Example : 
+
+![image](https://user-images.githubusercontent.com/153843/91738169-ffafd280-eba7-11ea-809d-07e7466fd5a6.png)
+
+More examples can be found [here](https://github.com/yesoreyeram/grafana-simple-deno-api-backend/issues/1#issuecomment-683855660)
+
 ## Local Installation
 
 ### Pre-Requisites
