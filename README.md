@@ -22,7 +22,7 @@ For more details about using this repo, refer the screenshots [here](https://git
 
 For demo purposes, this backend server is hosted in vercel. Latest version is hosted in the following URL.
 
-[https://grafana-simple-deno-api-backend.vercel.app/](https://grafana-simple-deno-api-backend.vercel.app/)
+## [https://grafana-utils.vercel.app](https://grafana-utils.vercel.app)
 
 With the above datasource URL, You can use the datasource without any local installation using simple json datasource. Example shown [here](https://user-images.githubusercontent.com/153843/91702577-d9227500-eb70-11ea-88cf-6c3a3fcbc868.png).
 
