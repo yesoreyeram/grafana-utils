@@ -13,7 +13,16 @@ export const searchRoute = async (ctx: Context) => {
         ctx.response.body = MOCK_DATA.TEAMS.map((server) => server.name);
         break;
       default:
-        ctx.response.body = ["cpu", "memory"];
+        ctx.response.body = [
+          "cpu",
+          "memory",
+          "RandomWalk()",
+          "FlatLine(5)",
+          "Step(0,,5)",
+          "Pattern(HeartBeat,0,0,0,-3,-2,4,0,0)",
+          "Expression(Foo,multiply:0.1,cos,abs,max:0.3)",
+          "Expression(Bar,random,multiply:100)",
+        ];
         break;
     }
   } else {

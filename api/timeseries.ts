@@ -97,59 +97,68 @@ export const getTimeSeriesResults = (
         [0],
         [0],
       ).map((item, index) => {
-        let value = operations.reduce((prev: number, curr: string) => {
-          let currentOperation = curr.split(":");
-          switch (currentOperation[0]) {
-            case "add":
-              prev = prev + (+(currentOperation[1]));
-              break;
-            case "minus":
-              prev = prev - (+(currentOperation[1]));
-              break;
-            case "multiply":
-              prev = prev * (+(currentOperation[1]));
-              break;
-            case "divide":
-              prev = prev / (+(currentOperation[1]));
-              break;
-            case "abs":
-              prev = Math.abs(prev);
-              break;
-            case "pow":
-              prev = Math.pow(prev, +(currentOperation[1]));
-              break;
-            case "sqrt":
-              prev = Math.sqrt(prev);
-              break;
-            case "max":
-              prev = Math.max(prev, +(currentOperation[1]));
-              break;
-            case "min":
-              prev = Math.min(prev, +(currentOperation[1]));
-              break;
-            case "sin":
-              prev = Math.sin(prev);
-              break;
-            case "cos":
-              prev = Math.cos(prev);
-              break;
-            case "tan":
-              prev = Math.tan(prev);
-              break;
-            case "ceil":
-              prev = Math.ceil(prev);
-              break;
-            case "floor":
-              prev = Math.floor(prev);
-              break;
-            case "round":
-              prev = Math.round(prev);
-              break;
-            default:
-              break;
-          }
-          return prev;
-        }, index);
+        let value = operations.reduce(
+          (prev: number, curr: string, currentIndex: number) => {
+            let currentOperation = curr.split(":");
+            let operation = currentOperation[0];
+            let value1 = +(currentOperation[1]);
+            switch (operation) {
+              case "rand":
+              case "random":
+                prev = Math.random();
+                break;
+              case "add":
+                prev = prev + value1;
+                break;
+              case "minus":
+                prev = prev - value1;
+                break;
+              case "multiply":
+                prev = prev * value1;
+                break;
+              case "divide":
+                prev = prev / value1;
+                break;
+              case "abs":
+                prev = Math.abs(prev);
+                break;
+              case "pow":
+                prev = Math.pow(prev, value1);
+                break;
+              case "sqrt":
+                prev = Math.sqrt(prev);
+                break;
+              case "max":
+                prev = Math.max(prev, value1);
+                break;
+              case "min":
+                prev = Math.min(prev, value1);
+                break;
+              case "sin":
+                prev = Math.sin(prev);
+                break;
+              case "cos":
+                prev = Math.cos(prev);
+                break;
+              case "tan":
+                prev = Math.tan(prev);
+                break;
+              case "ceil":
+                prev = Math.ceil(prev);
+                break;
+              case "floor":
+                prev = Math.floor(prev);
+                break;
+              case "round":
+                prev = Math.round(prev);
+                break;
+              default:
+                break;
+            }
+            return prev;
+          },
+          index,
+        );
         return [value, item[1]];
       }),
     });
