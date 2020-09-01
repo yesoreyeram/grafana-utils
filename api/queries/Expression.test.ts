@@ -13,7 +13,6 @@ Deno.test({
       startTime,
       endTime,
     );
-    console.log(series);
     assertEquals(series.length, 1);
     assertEquals(typeof series[0], "object");
     assertEquals(typeof series[0].target, "string");
@@ -38,7 +37,6 @@ Deno.test({
       startTime,
       endTime,
     );
-    console.log(series);
     assertEquals(series.length, 1);
     assertEquals(typeof series[0], "object");
     assertEquals(typeof series[0].target, "string");
@@ -63,7 +61,6 @@ Deno.test({
       startTime,
       endTime,
     );
-    console.log(series);
     assertEquals(series.length, 1);
     assertEquals(typeof series[0], "object");
     assertEquals(typeof series[0].target, "string");
