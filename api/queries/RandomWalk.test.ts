@@ -7,8 +7,8 @@ Deno.test({
   name: `${NAMESPACE}.TimeSeries.RandomWalk.Basic`,
   fn: () => {
     const query = new RandomWalk("RandomWalk()");
-    const startTime = new Date("2020-08-31 10:20:00").getTime();
-    const endTime = new Date("2020-08-31 10:30:00").getTime();
+    const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
+    const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
     let series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
       endTime,
@@ -28,8 +28,8 @@ Deno.test({
   name: `${NAMESPACE}.TimeSeries.RandomWalk.Multi`,
   fn: () => {
     const query = new RandomWalk("RandomWalk(3)");
-    const startTime = new Date("2020-08-31 10:20:00").getTime();
-    const endTime = new Date("2020-08-31 10:30:00").getTime();
+    const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
+    const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
     let series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
       endTime,
@@ -49,8 +49,8 @@ Deno.test({
   name: `${NAMESPACE}.TimeSeries.RandomWalk.MultiNamed`,
   fn: () => {
     const query = new RandomWalk("RandomWalk(3,Server)");
-    const startTime = new Date("2020-08-31 10:20:00").getTime();
-    const endTime = new Date("2020-08-31 10:30:00").getTime();
+    const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
+    const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
     let series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
       endTime,
@@ -71,8 +71,8 @@ Deno.test({
   name: `${NAMESPACE}.TimeSeries.RandomWalk.SingleNamed`,
   fn: () => {
     const query = new RandomWalk("RandomWalk(,Server)");
-    const startTime = new Date("2020-08-31 10:20:00").getTime();
-    const endTime = new Date("2020-08-31 10:30:00").getTime();
+    const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
+    const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
     let series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
       endTime,
@@ -93,8 +93,8 @@ Deno.test({
   name: `${NAMESPACE}.TimeSeries.RandomWalk.NotANumber`,
   fn: () => {
     const query = new RandomWalk("RandomWalk(Server)");
-    const startTime = new Date("2020-08-31 10:20:00").getTime();
-    const endTime = new Date("2020-08-31 10:30:00").getTime();
+    const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
+    const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
     let series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
       endTime,

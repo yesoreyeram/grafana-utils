@@ -7,8 +7,8 @@ Deno.test({
   name: `${NAMESPACE}.TimeSeries.Pattern.Basic`,
   fn: () => {
     const query = new Pattern("Pattern(Foo,1,2,3,2)");
-    const startTime = new Date("2020-08-31 10:20:00").getTime();
-    const endTime = new Date("2020-08-31 10:30:00").getTime();
+    const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
+    const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
     let series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
       endTime,
@@ -32,8 +32,8 @@ Deno.test({
   name: `${NAMESPACE}.TimeSeries.Patterns.Basic`,
   fn: () => {
     const query = new Patterns("Patterns([Foo,1,2,3,2][Bar,3,2,1,2])");
-    const startTime = new Date("2020-08-31 10:20:00").getTime();
-    const endTime = new Date("2020-08-31 10:30:00").getTime();
+    const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
+    const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
     let series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
       endTime,

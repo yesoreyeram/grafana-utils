@@ -7,8 +7,8 @@ Deno.test({
   name: `${NAMESPACE}.TimeSeries.Expression.Basic`,
   fn: () => {
     const query = new Expression("Expression(Foo)");
-    const startTime = new Date("2020-08-31 10:20:00").getTime();
-    const endTime = new Date("2020-08-31 10:30:00").getTime();
+    const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
+    const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
     let series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
       endTime,
@@ -31,8 +31,8 @@ Deno.test({
   name: `${NAMESPACE}.TimeSeries.Expression.Single`,
   fn: () => {
     const query = new Expression("Expression(Foo,multiply:0.1)");
-    const startTime = new Date("2020-08-31 10:20:00").getTime();
-    const endTime = new Date("2020-08-31 10:30:00").getTime();
+    const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
+    const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
     let series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
       endTime,
@@ -55,8 +55,8 @@ Deno.test({
   name: `${NAMESPACE}.TimeSeries.Expression.Multiple`,
   fn: () => {
     const query = new Expression("Expression(Foo,multiply:0.15,add:2.3)");
-    const startTime = new Date("2020-08-31 10:20:00").getTime();
-    const endTime = new Date("2020-08-31 10:30:00").getTime();
+    const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
+    const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
     let series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
       endTime,

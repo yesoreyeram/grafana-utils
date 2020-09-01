@@ -7,8 +7,8 @@ Deno.test({
   name: `${NAMESPACE}.TimeSeries.Step.Basic`,
   fn: () => {
     const query = new Step("Step()");
-    const startTime = new Date("2020-08-31 10:20:00").getTime();
-    const endTime = new Date("2020-08-31 10:30:00").getTime();
+    const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
+    const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
     let series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
       endTime,
@@ -30,8 +30,8 @@ Deno.test({
   name: `${NAMESPACE}.TimeSeries.Step.Number`,
   fn: () => {
     const query = new Step("Step(7)");
-    const startTime = new Date("2020-08-31 10:20:00").getTime();
-    const endTime = new Date("2020-08-31 10:30:00").getTime();
+    const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
+    const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
     let series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
       endTime,
@@ -53,8 +53,8 @@ Deno.test({
   name: `${NAMESPACE}.TimeSeries.Step.NumberNamed`,
   fn: () => {
     const query = new Step("Step(7,Rainbow )");
-    const startTime = new Date("2020-08-31 10:20:00").getTime();
-    const endTime = new Date("2020-08-31 10:30:00").getTime();
+    const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
+    const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
     let series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
       endTime,
@@ -77,8 +77,8 @@ Deno.test({
   name: `${NAMESPACE}.TimeSeries.Step.NumberNamedStep`,
   fn: () => {
     const query = new Step("Step(5,Rainbow,10)");
-    const startTime = new Date("2020-08-31 10:20:00").getTime();
-    const endTime = new Date("2020-08-31 10:30:00").getTime();
+    const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
+    const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
     let series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
       endTime,
