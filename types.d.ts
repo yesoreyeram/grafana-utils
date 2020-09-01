@@ -3,13 +3,14 @@ type timeSeriesResult = {
   target: string;
   datapoints: dataPoint[];
 };
-type column = {
+export type GrafanaTableColumn = {
   text: string;
   type: string;
 };
+export type GrafanaTableRow = string | number | object;
 type tableResult = {
-  columns: column[];
-  rows: (string | number | object)[];
+  columns: GrafanaTableColumn[];
+  rows: GrafanaTableRow[];
 };
 export type queryResult = timeSeriesResult | tableResult;
 export type annotationResult = {
