@@ -47,7 +47,14 @@ With the above datasource URL, You can use the datasource without any local inst
 | Pattern(HeartBeat,0,0,0,-3,-2,4,0,0)         | Repeat the pattern 0,0,0,-3,-2,4,0,0 as series 'Heartbeat' over the time range                                                                                                                                                                                                            |
 | Pattern(,0,1,2,1)                            | Repeat the pattern 0,1,2,1 as random series over the time range                                                                                                                                                                                                                           |
 | Patterns([Foo,4,3,2,1,2,3][Bar,1,2,3,2])     | Repeat both the patterns over the time range                                                                                                                                                                                                                                              |
-| Expression(Foo,multiply:0.1,cos,abs,max:0.3) | Series foo which is equivalent of max(abs(cos(x\*0.1)),0.3) where x is the index of the datapoint starting from 0.<br/>Multiple expressions can be added. <br/>Valid expressions are random, add, minus, multiply, divide, abs, pow, sqrt, max, min, sin, cos, tan, ceil, floor and round |
+| Expression(Foo,multiply:0.1,cos,abs,max:0.3) | Series foo which is equivalent of max(abs(cos(x\*0.1)),0.3) where x is the index of the datapoint starting from 0.<br/>Multiple expressions can be added. <br/>Valid expressions are random, add, minus, multiply, divide, abs, pow, sqrt, max, min, sin, cos, tan, ceil, floor and round. |
+
+#### Special functions in expression
+
+| Function | Sample Query | Description |
+|--------------|--------------|---------|
+| start-after | Expression(Foo,sin,start-after:2) | Series foo will start after 2 null values |
+| stop-after  | Expression(Foo,sin,stop-after:2) | Series foo will stop after values and produce null for remaining series |
 
 ### Custom Table Data
 

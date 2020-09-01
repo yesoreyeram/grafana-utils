@@ -22,10 +22,21 @@ export default class Expression extends Query {
         [0],
       ).map((item, index) => {
         let value = this.operations.reduce(
-          (prev: number, curr: string, currentIndex: number) => {
+          (prev: number | null, curr: string, currentIndex: number) => {
             let currentOperation = curr.split(":");
             let operation = currentOperation[0];
-            let value1 = +(currentOperation[1]);
+            let value1 = 0;
+            if (prev === null) {
+              return prev;
+            }
+            switch (currentOperation[1]) {
+              case "index":
+                value1 = +(index);
+                break;
+              default:
+                value1 = currentOperation[1] ? +(currentOperation[1]) : 0;
+                break;
+            }
             switch (operation) {
               case "rand":
               case "random":
@@ -75,6 +86,19 @@ export default class Expression extends Query {
                 break;
               case "round":
                 prev = Math.round(prev);
+                break;
+              default:
+                break;
+            }
+            switch (currentOperation[0]) {
+              case "reset":
+                prev = value1;
+                break;
+              case "start-after":
+                prev = index < value1 ? null : prev;
+                break;
+              case "stop-after":
+                prev = index >= value1 ? null : prev;
                 break;
               default:
                 break;

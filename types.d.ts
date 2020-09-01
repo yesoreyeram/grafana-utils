@@ -1,4 +1,4 @@
-export type dataPoint = [number, number];
+export type dataPoint = [number | null, number];
 type timeSeriesResult = {
   target: string;
   datapoints: dataPoint[];
