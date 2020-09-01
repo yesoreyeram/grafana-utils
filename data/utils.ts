@@ -35,7 +35,8 @@ export const getRandomWalkDataPoints = (
   let dataPointTime = startTime;
   let value = getRandomElementFromNumberArray(startFrom);
   while (dataPointTime < endTime) {
-    value += getRandomElementFromNumberArray(steps);
+    let valueToAdd = datapoints.length === 0 ? 0 :getRandomElementFromNumberArray(steps);
+    value += valueToAdd;
     datapoints.push([
       value,
       startTime + (datapoints.length * step),

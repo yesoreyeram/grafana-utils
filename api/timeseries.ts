@@ -3,6 +3,7 @@ import * as MOCK_DATA from "./../data/index.ts";
 import { sample } from "../utils/_.ts";
 import RandomWalk from "./queries/RandomWalk.ts";
 import FlatLine from "./queries/FlatLine.ts";
+import Step from "./queries/Step.ts";
 
 interface getTimeSeriesResultsOptions {
   startTime: number;
@@ -25,22 +26,10 @@ export const getTimeSeriesResults = (
       fl.toGrafanaSeriesList(options.startTime, options.endTime),
     );
   } else if (query.startsWith("Step(") && query.endsWith(")")) {
-    const startFrom =
-      (+(query.replace("Step(", "").replace(")", "")).split(",")[0]) || 0;
-    const seriesName =
-      (query.replace("Step(", "").replace(")", "")).split(",")[1] ||
-      sample(MOCK_DATA.RANDOM_WORDS);
-    const stepCount =
-      (+(query.replace("Step(", "").replace(")", "")).split(",")[2]) || 1;
-    result.push({
-      target: seriesName,
-      datapoints: MOCK_DATA.getRandomWalkDataPoints(
-        options.startTime,
-        options.endTime,
-        [startFrom],
-        [stepCount],
-      ),
-    });
+    const step = new Step(query);
+    result = result.concat(
+      step.toGrafanaSeriesList(options.startTime, options.endTime),
+    );
   } else if (query.startsWith("Pattern(") && query.endsWith(")")) {
     const seriesName =
       (query.replace("Pattern(", "").replace(")", "")).split(",")[0] ||
