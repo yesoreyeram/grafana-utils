@@ -1,26 +1,30 @@
 <p align="center">
-    <a href="https://yesoreyeram.github.io/grafana-simple-deno-api-backend"><img width="240" height="200" src="https://user-images.githubusercontent.com/153843/91555527-1399d100-e929-11ea-8ab3-31742977f317.png"/></a>
+    <a href="https://yesoreyeram.github.io/grafana-utils"><img width="240" height="200" src="https://user-images.githubusercontent.com/153843/91885386-9602f780-ec7f-11ea-9f8a-5cebff3c81cc.png"/></a>
 </p>
 <p align="center">
-    <h1 align="center">Grafana Deno JSON backend</h1> 
+    <h1 align="center">Grafana Utils</h1> 
 </p>
 <p align="center">
     Deno based simple backend server for Grafana JSON Datasource.
 </p>
 <p align="center">
-    <a href="https://github.com/yesoreyeram/grafana-simple-deno-api-backend/actions?query=workflow%3ACI" target="_blank"><img src="https://github.com/yesoreyeram/grafana-simple-deno-api-backend/workflows/CI/badge.svg"/></a>
-    <a href="https://github.com/yesoreyeram/grafana-simple-deno-api-backend/issues" target="_blank"><img src="https://img.shields.io/github/issues/yesoreyeram/grafana-simple-deno-api-backend"/></a>
+    <a href="https://github.com/yesoreyeram/grafana-utils/actions?query=workflow%3ACI" target="_blank"><img src="https://github.com/yesoreyeram/grafana-utils/workflows/CI/badge.svg"/></a>
+    <a href="https://github.com/yesoreyeram/grafana-utils/issues" target="_blank"><img src="https://img.shields.io/github/issues/yesoreyeram/grafana-utils"/></a>
 </p>
 
 Simple HTTP API backend server for Grafana based on Deno. Supported by [Grafana Simple JSON Datasource](https://grafana.com/grafana/plugins/grafana-simple-json-datasource). This will be useful for prototyping dashboards, demo dashboards and while building plugins.
 
-![image](https://user-images.githubusercontent.com/153843/91668195-c709ed80-eb02-11ea-83d5-15bacfbf037d.png)
-
-For more details about using this repo, refer the screenshots [here](https://github.com/yesoreyeram/grafana-simple-deno-api-backend/issues/1).
-
-## Hosted Server
-
 For demo purposes, this backend server is hosted in vercel. Latest version is hosted in the following URL.
+
+<p align="center">
+    <h1 align="center">
+        <a href="https://grafana-utils.vercel.app" target="_blank">https://grafana-utils.vercel.app</a>
+    </h1> 
+</p>
+
+![Grafana Screenshot](https://user-images.githubusercontent.com/153843/91885196-46bcc700-ec7f-11ea-8cd7-6e08309b70de.png)
+
+For more details about using this repo, refer the screenshots [here](https://github.com/yesoreyeram/grafana-utils/issues/1).
 
 ## [https://grafana-utils.vercel.app](https://grafana-utils.vercel.app)
 
@@ -84,7 +88,7 @@ You can call any csv url and the api server will return the data to grafana.
 
 ![image](https://user-images.githubusercontent.com/153843/91738169-ffafd280-eba7-11ea-809d-07e7466fd5a6.png)
 
-More examples can be found [here](https://github.com/yesoreyeram/grafana-simple-deno-api-backend/issues/1#issuecomment-683855660)
+More examples can be found [here](https://github.com/yesoreyeram/grafana-utils/issues/1#issuecomment-683855660)
 
 ## Local Installation
 
@@ -99,14 +103,14 @@ There are couple of ways you can start the server
 1. Running directly from url
 
 ```
-deno run --allow-net https://raw.githubusercontent.com/yesoreyeram/grafana-simple-deno-api-backend/master/mod.ts --port 8080
+deno run --allow-net https://raw.githubusercontent.com/yesoreyeram/grafana-utils/master/mod.ts --port 8080
 ```
 
 2. Running from local
 
 ```
-git clone https://github.com/yesoreyeram/grafana-simple-deno-api-backend.git
-cd grafana-simple-deno-api-backend
+git clone https://github.com/yesoreyeram/grafana-utils.git
+cd grafana-utils
 deno run --allow-net mod.ts --port 8080
 ```
 
