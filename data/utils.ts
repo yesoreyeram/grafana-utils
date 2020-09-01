@@ -1,8 +1,5 @@
 import { dataPoint } from "./../types.d.ts";
-
-export const getRandomElementFromNumberArray = (array: number[]): number => {
-  return array[Math.floor(Math.random() * array.length)];
-};
+import { sample } from "./../utils/_.ts";
 
 const getStepFromRange = (startTime: number, endTime: number): number => {
   const MINUTE = 60 * 1000;
@@ -33,11 +30,9 @@ export const getRandomWalkDataPoints = (
   let step = getStepFromRange(startTime, endTime);
   const datapoints: dataPoint[] = [];
   let dataPointTime = startTime;
-  let value = getRandomElementFromNumberArray(startFrom);
+  let value = sample(startFrom);
   while (dataPointTime < endTime) {
-    let valueToAdd = datapoints.length === 0
-      ? 0
-      : getRandomElementFromNumberArray(steps);
+    let valueToAdd = datapoints.length === 0 ? 0 : sample(steps);
     value += valueToAdd;
     datapoints.push([
       value,
