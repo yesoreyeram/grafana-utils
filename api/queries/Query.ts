@@ -6,8 +6,8 @@ export default class Query {
   query: string;
   queryObjects: string[];
   constructor(
-    public type: string,
-    public querystring: string,
+    public type: "table" | "timeserie",
+    querystring: string,
     public options: QueryOptions,
   ) {
     this.query = querystring;

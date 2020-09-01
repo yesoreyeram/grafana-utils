@@ -1,5 +1,7 @@
 import { queryResult } from "./../types.d.ts";
 import * as MOCK_DATA from "./../data/index.ts";
+import { sample } from "../utils/_.ts";
+import RandomWalk from "./queries/RandomWalk.ts";
 
 interface getTimeSeriesResultsOptions {
   startTime: number;
@@ -12,27 +14,16 @@ export const getTimeSeriesResults = (
   options: getTimeSeriesResultsOptions,
 ) => {
   if (query.startsWith("RandomWalk(") && query.endsWith(")")) {
-    const count =
-      (+(query.replace("RandomWalk(", "").replace(")", "")).split(",")[0]) || 1;
-    const seriesName =
-      (query.replace("RandomWalk(", "").replace(")", "")).split(",")[1];
-    for (let i = 0; i < count; i++) {
-      result.push({
-        target: seriesName
-          ? (seriesName + ` ${i + 1}`)
-          : MOCK_DATA.getRandomElementFromStringArray(MOCK_DATA.RANDOM_WORDS),
-        datapoints: MOCK_DATA.getRandomWalkDataPoints(
-          options.startTime,
-          options.endTime,
-        ),
-      });
-    }
+    const rw = new RandomWalk(query);
+    result = result.concat(
+      rw.toGrafanaSeriesList(options.startTime, options.endTime),
+    );
   } else if (query.startsWith("FlatLine(") && query.endsWith(")")) {
     const startFrom =
       (+(query.replace("FlatLine(", "").replace(")", "")).split(",")[0]) || 0;
     const seriesName =
       (query.replace("FlatLine(", "").replace(")", "")).split(",")[1] ||
-      MOCK_DATA.getRandomElementFromStringArray(MOCK_DATA.RANDOM_WORDS);
+      sample(MOCK_DATA.RANDOM_WORDS);
     result.push({
       target: seriesName,
       datapoints: MOCK_DATA.getRandomWalkDataPoints(
@@ -47,7 +38,7 @@ export const getTimeSeriesResults = (
       (+(query.replace("Step(", "").replace(")", "")).split(",")[0]) || 0;
     const seriesName =
       (query.replace("Step(", "").replace(")", "")).split(",")[1] ||
-      MOCK_DATA.getRandomElementFromStringArray(MOCK_DATA.RANDOM_WORDS);
+      sample(MOCK_DATA.RANDOM_WORDS);
     const stepCount =
       (+(query.replace("Step(", "").replace(")", "")).split(",")[2]) || 1;
     result.push({
@@ -62,7 +53,7 @@ export const getTimeSeriesResults = (
   } else if (query.startsWith("Pattern(") && query.endsWith(")")) {
     const seriesName =
       (query.replace("Pattern(", "").replace(")", "")).split(",")[0] ||
-      MOCK_DATA.getRandomElementFromStringArray(MOCK_DATA.RANDOM_WORDS);
+      sample(MOCK_DATA.RANDOM_WORDS);
     let steps = query.replace("Pattern(", "").replace(")", "").split(",").map(
       (a) => a.trim(),
     ).filter((value, index) => index > 0).map((item) => +item).filter((item) =>
@@ -83,7 +74,7 @@ export const getTimeSeriesResults = (
   } else if (query.startsWith("Expression(") && query.endsWith(")")) {
     const seriesName =
       (query.replace("Expression(", "").replace(")", "")).split(",")[0] ||
-      MOCK_DATA.getRandomElementFromStringArray(MOCK_DATA.RANDOM_WORDS);
+      sample(MOCK_DATA.RANDOM_WORDS);
     let operations = query.replace("Expression(", "").replace(")", "").split(
       ",",
     ).map(

@@ -4,10 +4,6 @@ export const getRandomElementFromNumberArray = (array: number[]): number => {
   return array[Math.floor(Math.random() * array.length)];
 };
 
-export const getRandomElementFromStringArray = (array: string[]): string => {
-  return array[Math.floor(Math.random() * array.length)];
-};
-
 const getStepFromRange = (startTime: number, endTime: number): number => {
   const MINUTE = 60 * 1000;
   const HOUR = 60 * MINUTE;

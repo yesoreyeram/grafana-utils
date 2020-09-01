@@ -1,7 +1,6 @@
 export {
   getRandomWalkDataPoints,
   getRandomElementFromNumberArray,
-  getRandomElementFromStringArray,
 } from "./utils.ts";
 export { SERVERS } from "./servers.ts";
 export { TEAMS } from "./teams.ts";
