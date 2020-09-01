@@ -48,6 +48,20 @@ With the above datasource URL, You can use the datasource without any local inst
 | Pattern(,0,1,2,1)                            | Repeat the pattern 0,1,2,1 as random series over the time range                                                                                                                                                                                                                           |
 | Expression(Foo,multiply:0.1,cos,abs,max:0.3) | Series foo which is equivalent of max(abs(cos(x\*0.1)),0.3) where x is the index of the datapoint starting from 0.<br/>Multiple expressions can be added. <br/>Valid expressions are random, add, minus, multiply, divide, abs, pow, sqrt, max, min, sin, cos, tan, ceil, floor and round |
 
+### Custom Table Data
+
+For custom table data, follow the below syntax
+
+`Custom(columnCount,...columns,...rows)`
+
+Examples given below
+
+| Format | Description |
+|--------|-------------|
+| `Custom(1,countries,india,china,england,united kingdom)` | 1 column table with column name as countries. Contains india, china, england, united kingdom as rows |
+| `Custom(2,countries,city,india,chennai,england,london)` | 2 columns table with Countries and City as column names. Remaining items will spread as row items respectively. |
+| `Custom(3,countries,rank:number,capital,india,1,delhi,england,3,london)` | 3 column table where second column in number format |
+
 ###  CSV datasource
 
 You can call any csv url and the api server will return the data to grafana.
