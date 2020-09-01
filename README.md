@@ -1,15 +1,13 @@
 <p align="center">
-    <a href="https://yesoreyeram.github.io/grafana-utils"><img width="240" height="200" src="https://user-images.githubusercontent.com/153843/91885386-9602f780-ec7f-11ea-9f8a-5cebff3c81cc.png"/></a>
-</p>
-<p align="center">
     <h1 align="center">Grafana Utils</h1> 
 </p>
 <p align="center">
-    Deno based simple backend server for Grafana JSON Datasource.
+    <a href="https://yesoreyeram.github.io/grafana-utils"><img width="240" height="200" src="https://user-images.githubusercontent.com/153843/91885386-9602f780-ec7f-11ea-9f8a-5cebff3c81cc.png"/></a>
 </p>
 <p align="center">
     <a href="https://github.com/yesoreyeram/grafana-utils/actions?query=workflow%3ACI" target="_blank"><img src="https://github.com/yesoreyeram/grafana-utils/workflows/CI/badge.svg"/></a>
     <a href="https://github.com/yesoreyeram/grafana-utils/issues" target="_blank"><img src="https://img.shields.io/github/issues/yesoreyeram/grafana-utils"/></a>
+    <a href="https://GitHub.com/yesoreyeram/grafana-utils/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Grafana Utils is maintained" /></a>
 </p>
 
 Simple HTTP API backend server for Grafana based on Deno. Supported by [Grafana Simple JSON Datasource](https://grafana.com/grafana/plugins/grafana-simple-json-datasource). This will be useful for prototyping dashboards, demo dashboards and while building plugins.
@@ -17,18 +15,18 @@ Simple HTTP API backend server for Grafana based on Deno. Supported by [Grafana 
 For demo purposes, this backend server is hosted in vercel. Latest version is hosted in the following URL.
 
 <p align="center">
-    <h1 align="center">
+    <h2 align="center">
         <a href="https://grafana-utils.vercel.app" target="_blank">https://grafana-utils.vercel.app</a>
-    </h1> 
+    </h2> 
 </p>
+
+With the above datasource URL, You can use the datasource without any local installation using simple json datasource. Example shown [here](https://user-images.githubusercontent.com/153843/91702577-d9227500-eb70-11ea-88cf-6c3a3fcbc868.png).
+
+# Features
 
 ![Grafana Screenshot](https://user-images.githubusercontent.com/153843/91885196-46bcc700-ec7f-11ea-8cd7-6e08309b70de.png)
 
 For more details about using this repo, refer the screenshots [here](https://github.com/yesoreyeram/grafana-utils/issues/1).
-
-## [https://grafana-utils.vercel.app](https://grafana-utils.vercel.app)
-
-With the above datasource URL, You can use the datasource without any local installation using simple json datasource. Example shown [here](https://user-images.githubusercontent.com/153843/91702577-d9227500-eb70-11ea-88cf-6c3a3fcbc868.png).
 
 
 ## Custom TimeSeries data
