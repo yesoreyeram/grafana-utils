@@ -4,6 +4,7 @@ import { sample } from "../utils/_.ts";
 import RandomWalk from "./queries/RandomWalk.ts";
 import FlatLine from "./queries/FlatLine.ts";
 import Step from "./queries/Step.ts";
+import Pattern from "./queries/Pattern.ts";
 
 interface getTimeSeriesResultsOptions {
   startTime: number;
@@ -31,26 +32,10 @@ export const getTimeSeriesResults = (
       step.toGrafanaSeriesList(options.startTime, options.endTime),
     );
   } else if (query.startsWith("Pattern(") && query.endsWith(")")) {
-    const seriesName =
-      (query.replace("Pattern(", "").replace(")", "")).split(",")[0] ||
-      sample(MOCK_DATA.RANDOM_WORDS);
-    let steps = query.replace("Pattern(", "").replace(")", "").split(",").map(
-      (a) => a.trim(),
-    ).filter((value, index) => index > 0).map((item) => +item).filter((item) =>
-      !isNaN(item)
+    const pattern = new Pattern(query);
+    result = result.concat(
+      pattern.toGrafanaSeriesList(options.startTime, options.endTime),
     );
-    if (steps.length === 0) steps = [0];
-    result.push({
-      target: seriesName,
-      datapoints: MOCK_DATA.getRandomWalkDataPoints(
-        options.startTime,
-        options.endTime,
-        [0],
-        [0],
-      ).map((item, index) => {
-        return [steps[index % steps.length], item[1]];
-      }),
-    });
   } else if (query.startsWith("Expression(") && query.endsWith(")")) {
     const seriesName =
       (query.replace("Expression(", "").replace(")", "")).split(",")[0] ||
