@@ -5,6 +5,7 @@ import FlatLine from "./queries/FlatLine.ts";
 import Step from "./queries/Step.ts";
 import Pattern, { Patterns } from "./queries/Pattern.ts";
 import Expression from "./queries/Expression.ts";
+import Distribute from "./queries/Distribute.ts";
 
 interface getTimeSeriesResultsOptions {
   startTime: number;
@@ -47,23 +48,10 @@ export const getTimeSeriesResults = (
       expression.toGrafanaSeriesList(options.startTime, options.endTime),
     );
   } else if (query.startsWith("Distribute(") && query.endsWith(")")) {
-    const TotalValue =
-      (+(query.replace("Distribute(", "").replace(")", "")).split(",")[0]) ||
-      100;
-    const seriesNames = (query.replace("Distribute(", "").replace(")", ""))
-      .split(",").filter((value, index) => index > 0);
-    const startValue = Math.round(TotalValue / (seriesNames.length));
-    seriesNames.forEach((seriesName: string) => {
-      result.push({
-        target: seriesName,
-        datapoints: MOCK_DATA.getRandomWalkDataPoints(
-          options.startTime,
-          options.endTime,
-          [startValue],
-          [-3, -2, -1, 0, 1, 2, 3],
-        ),
-      });
-    });
+    const distribution = new Distribute(query);
+    result = result.concat(
+      distribution.toGrafanaSeriesList(options.startTime, options.endTime),
+    );
   } else {
     result.push({
       target: query,
