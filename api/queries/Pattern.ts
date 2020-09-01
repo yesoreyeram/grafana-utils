@@ -32,3 +32,29 @@ export default class Pattern extends Query {
     return result;
   }
 }
+export class Patterns extends Query {
+  private patterns: Pattern[];
+  constructor(queryString: string) {
+    super("timeserie", queryString, { token: "Patterns" });
+    this.patterns = this.query.split("]").map((a) => a.replace("[", "")).filter(
+      Boolean,
+    ).map((a) => `Pattern(${a})`).map((a) => new Pattern(a));
+  }
+  toGrafanaSeriesList(startTime: number, endTime: number): timeSeriesResult[] {
+    let result: timeSeriesResult[] = [];
+    this.patterns.forEach((pattern) => {
+      result.push({
+        target: pattern.seriesName,
+        datapoints: MOCK_DATA.getRandomWalkDataPoints(
+          startTime,
+          endTime,
+          [0],
+          [0],
+        ).map((item, index) => {
+          return [pattern.steps[index % pattern.steps.length], item[1]];
+        }),
+      });
+    });
+    return result;
+  }
+}

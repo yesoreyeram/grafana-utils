@@ -4,7 +4,7 @@ import { sample } from "../utils/_.ts";
 import RandomWalk from "./queries/RandomWalk.ts";
 import FlatLine from "./queries/FlatLine.ts";
 import Step from "./queries/Step.ts";
-import Pattern from "./queries/Pattern.ts";
+import Pattern, { Patterns } from "./queries/Pattern.ts";
 
 interface getTimeSeriesResultsOptions {
   startTime: number;
@@ -35,6 +35,11 @@ export const getTimeSeriesResults = (
     const pattern = new Pattern(query);
     result = result.concat(
       pattern.toGrafanaSeriesList(options.startTime, options.endTime),
+    );
+  } else if (query.startsWith("Patterns(") && query.endsWith(")")) {
+    const patterns = new Patterns(query);
+    result = result.concat(
+      patterns.toGrafanaSeriesList(options.startTime, options.endTime),
     );
   } else if (query.startsWith("Expression(") && query.endsWith(")")) {
     const seriesName =
