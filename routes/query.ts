@@ -1,8 +1,8 @@
 import { Context } from "./../deps.ts";
 import { BANNER } from "./../config/config.ts";
 import { queryResult, grafanaQueryTarget } from "./../types.d.ts";
-import { getTimeSeriesResults } from "./../api/timeseries.ts";
-import { getTableResults } from "./../api/table.ts";
+import { getTimeSeriesResults } from "./../app/timeseries.ts";
+import { getTableResults } from "./../app/table.ts";
 import { getCSVResults } from "./../data/csv.ts";
 
 export async function processData(
