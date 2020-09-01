@@ -6,6 +6,7 @@ import Step from "./queries/Step.ts";
 import Pattern, { Patterns } from "./queries/Pattern.ts";
 import Expression from "./queries/Expression.ts";
 import Distribute from "./queries/Distribute.ts";
+import Matrix from "./queries/Matrix.ts";
 
 interface getTimeSeriesResultsOptions {
   startTime: number;
@@ -41,6 +42,11 @@ export const getTimeSeriesResults = (
     const patterns = new Patterns(query);
     result = result.concat(
       patterns.toGrafanaSeriesList(options.startTime, options.endTime),
+    );
+  } else if (query.startsWith("Matrix(") && query.endsWith(")")) {
+    const matrix = new Matrix(query);
+    result = result.concat(
+      matrix.toGrafanaSeriesList(options.startTime, options.endTime),
     );
   } else if (query.startsWith("Expression(") && query.endsWith(")")) {
     const expression = new Expression(query);
