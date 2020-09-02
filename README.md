@@ -7,6 +7,7 @@
     <a href="https://github.com/yesoreyeram/grafana-utils/blob/master/LICENSE" target="_blank"><img src="https://img.shields.io/github/license/yesoreyeram/grafana-utils" alt="Grafana utils license" /></a>
     <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs are welcome" /></a>
     <a href="https://GitHub.com/yesoreyeram/grafana-utils/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Grafana Utils is maintained" /></a>
+    <a href="https://codeclimate.com/github/yesoreyeram/grafana-utils/maintainability"><img src="https://api.codeclimate.com/v1/badges/66ea317daf48cccd6f35/maintainability" /></a>
 </p>
 
 Simple HTTP API backend server for Grafana based on Deno. Supported by [Grafana Simple JSON Datasource](https://grafana.com/grafana/plugins/grafana-simple-json-datasource). This will be useful for prototyping dashboards, demo dashboards and while building plugins.
