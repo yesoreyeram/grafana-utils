@@ -13,16 +13,12 @@ export async function processData(
   const promises = targets.map(async (target) => {
     let query = target.target || "";
     if (query.startsWith("CSV(") && query.endsWith(")")) {
-      return getCSVResults(
-        [],
-        query,
-        { type: target.type, startTime, endTime },
-      );
+      let type = target.type;
+      return getCSVResults([], query, { type, startTime, endTime });
     } else if (target.type === "timeserie") {
       return getTimeSeriesResults([], query, { startTime, endTime });
     } else if (target.type === "table") {
-      let result = await getTableResults([], query);
-      return result;
+      return await getTableResults([], query);
     }
   });
   return await Promise.all(promises).then((res) => res.flat());
