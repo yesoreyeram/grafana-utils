@@ -57,8 +57,8 @@ For more details about the use cases, refer the screenshots [here](https://githu
 | Pattern(,0,1,2,1)                            | Repeat the pattern 0,1,2,1 as random series over the time range                                                                                                                                                                                                                           |
 | Patterns([Foo,4,3,2,1,2,3][Bar,1,2,3,2])     | Repeat both the patterns over the time range                                                                                                                                                                                                                                              |
 | Expression(Foo,multiply:0.1,cos,abs,max:0.3) | Series foo which is equivalent of max(abs(cos(x\*0.1)),0.3) where x is the index of the datapoint starting from 0.<br/>Multiple expressions can be added. <br/>Valid expressions are random, add, minus, multiply, divide, abs, pow, sqrt, max, min, sin, cos, tan, ceil, floor and round.|
-| Matrix(Foo,10,[6,7,1,2,3,4,5][1,2,0,4,5])    | Create a series call Foo after the fist 10 timestamps. Rest of the series within square brackets are datapoints for each timestamp. Given example will have 2 timestamp points.                                                                                                           |
-| LCD(GRAFANA)                                 | Create series of datapoints representing word GRAFNA in LCD format.Spaces and alphabets are accepted. If you need space before/after the word prefix/suffix with *                                                                                                                        | 
+| Matrix(Foo,10,20,[6,7,1,2,3,4,5][1,2,0,4,5]) | Create a series call Foo after the fist 10 timestamps. shifted by 20 points down. Rest of the series within square brackets are datapoints for each timestamp. Given example will have 2 timestamp points.                                                                                |
+| LCD(GRAFANA,10)                              | Create series of datapoints representing word GRAFNA in LCD format.Spaces and alphabets are accepted. If you need space before/after the word prefix/suffix with *. Second parameter is y offset. In the example entire text is shifted by 10 points in y axis                            | 
 
 #### Special functions in expression
 
@@ -129,17 +129,8 @@ There are few command line flags you can pass while starting the server to custo
 | `--allow-net` | This is security flag required by deno. Otherwise, server will not able to access the port. |
 | `--port`      | HTTP port to start the server. If not provided, server will try to start at port 8080       |
 
-### Features
 
-This Deno based grafana api server exposes the following endpoints
-
-- `/search`
-- `/query`
-- `/annotations`
-- `/tag-keys`
-- `/tag-values`
-
-### Granularity
+## Misc
 
 Timeseries data are set for auto granularity to stop abuse of the platform.
 
