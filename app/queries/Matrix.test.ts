@@ -66,8 +66,8 @@ Deno.test({
     assertEquals(series.length, 10);
     assertEquals(typeof series[0], "object");
     assertEquals(typeof series[0].target, "string");
-    assertEquals(series[0].target, "*");
-    assertEquals(series[2].target, "S");
+    assertEquals(series[0].target, "*1");
+    assertEquals(series[2].target, "S3");
     assertEquals(typeof series[0].datapoints, "object");
     assertEquals(series[0].datapoints.length, 0);
     assertEquals(series[2].datapoints.length, 19);
