@@ -2,7 +2,7 @@
     <h1 align="center">Grafana Utils</h1> 
 </p>
 <p align="center">
-    <a href="https://yesoreyeram.github.io/grafana-utils"><img width="240" height="200" src="https://user-images.githubusercontent.com/153843/91885386-9602f780-ec7f-11ea-9f8a-5cebff3c81cc.png"/></a>
+    <a href="https://yesoreyeram.github.io/grafana-utils"><img src="https://user-images.githubusercontent.com/153843/91943457-88d42000-ecf4-11ea-96a7-be4f50b16e71.png"/></a>
 </p>
 <p align="center">
     <a href="https://github.com/yesoreyeram/grafana-utils/actions?query=workflow%3ACI" target="_blank"><img src="https://github.com/yesoreyeram/grafana-utils/workflows/CI/badge.svg"/></a>
@@ -12,7 +12,9 @@
 
 Simple HTTP API backend server for Grafana based on Deno. Supported by [Grafana Simple JSON Datasource](https://grafana.com/grafana/plugins/grafana-simple-json-datasource). This will be useful for prototyping dashboards, demo dashboards and while building plugins.
 
-For demo purposes, this backend server is hosted in vercel. Latest version is hosted in the following URL.
+## How to use
+
+The backend server is hosted in the following url
 
 <p align="center">
     <h2 align="center">
@@ -20,16 +22,21 @@ For demo purposes, this backend server is hosted in vercel. Latest version is ho
     </h2> 
 </p>
 
-With the above datasource URL, You can use the datasource without any local installation using simple json datasource. Example shown [here](https://user-images.githubusercontent.com/153843/91702577-d9227500-eb70-11ea-88cf-6c3a3fcbc868.png).
+Above backend needs to be connected with [Grafana Simple JSON Datasource](https://grafana.com/grafana/plugins/grafana-simple-json-datasource). Example shown [here](https://github.com/yesoreyeram/grafana-utils/issues/1#issuecomment-685401416). Once datasource configured, you can start writing queries directly.
 
-# Features
+_Note: Instead the hosted version, you can also use your own instance for production purposes_
 
-![Grafana Screenshot](https://user-images.githubusercontent.com/153843/91885196-46bcc700-ec7f-11ea-8cd7-6e08309b70de.png)
+## Features
 
-For more details about using this repo, refer the screenshots [here](https://github.com/yesoreyeram/grafana-utils/issues/1).
+* Custom timeseries patterns
+* CSV Datasource
+* Ad-hoc table data
+* LCD text
+
+For more details about the use cases, refer the screenshots [here](https://github.com/yesoreyeram/grafana-utils/issues/1).
 
 
-## Custom TimeSeries data
+## Custom TimeSeries patterns
 
 | Series Name                                  | Result                                                                                                                                                                                                                                                                                    |
 | -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -60,7 +67,7 @@ For more details about using this repo, refer the screenshots [here](https://git
 | start-after | Expression(Foo,sin,start-after:2) | Series foo will start after 2 null values |
 | stop-after  | Expression(Foo,sin,stop-after:2) | Series foo will stop after values and produce null for remaining series |
 
-### Custom Table Data
+## Custom Table Data
 
 For custom table data, follow the below syntax
 
@@ -74,7 +81,7 @@ Examples given below
 | `Custom(2,countries,city,india,chennai,england,london)` | 2 columns table with Countries and City as column names. Remaining items will spread as row items respectively. |
 | `Custom(3,countries,rank:number,capital,india,1,delhi,england,3,london)` | 3 column table where second column in number format |
 
-###  CSV datasource
+## CSV datasource
 
 You can call any csv url and the api server will return the data to grafana.
 
