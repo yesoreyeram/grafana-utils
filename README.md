@@ -1,16 +1,26 @@
 <p align="center">
-    <h1 align="center">Grafana Utils</h1> 
-</p>
-<p align="center">
-    <a href="https://yesoreyeram.github.io/grafana-utils"><img src="https://user-images.githubusercontent.com/153843/91943457-88d42000-ecf4-11ea-96a7-be4f50b16e71.png"/></a>
+    <a href="https://yesoreyeram.github.io/grafana-utils"><img src="https://user-images.githubusercontent.com/153843/91980457-30664800-ed1f-11ea-859c-6337d8f22334.png"/></a>
 </p>
 <p align="center">
     <a href="https://github.com/yesoreyeram/grafana-utils/actions?query=workflow%3ACI" target="_blank"><img src="https://github.com/yesoreyeram/grafana-utils/workflows/CI/badge.svg"/></a>
     <a href="https://github.com/yesoreyeram/grafana-utils/issues" target="_blank"><img src="https://img.shields.io/github/issues/yesoreyeram/grafana-utils"/></a>
+    <a href="https://github.com/yesoreyeram/grafana-utils/blob/master/LICENSE" target="_blank"><img src="https://img.shields.io/github/license/yesoreyeram/grafana-utils" alt="Grafana utils license" /></a>
+    <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs are welcome" /></a>
     <a href="https://GitHub.com/yesoreyeram/grafana-utils/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Grafana Utils is maintained" /></a>
 </p>
 
 Simple HTTP API backend server for Grafana based on Deno. Supported by [Grafana Simple JSON Datasource](https://grafana.com/grafana/plugins/grafana-simple-json-datasource). This will be useful for prototyping dashboards, demo dashboards and while building plugins.
+
+## Table of Contents
+
+- [How to use](#how-to-use)
+- [Features](#features)
+- [Custom TimeSeries patterns](#custom-timeseries-patterns)
+- [Custom Table Data](#custom-table-data)
+- [CSV Datasource](#csv-datasource)
+- [Local Installation](#local-installation)
+- [Notes](#notes)
+- [License](#license)
 
 ## How to use
 
@@ -130,7 +140,7 @@ There are few command line flags you can pass while starting the server to custo
 | `--port`      | HTTP port to start the server. If not provided, server will try to start at port 8080       |
 
 
-## Misc
+## Notes
 
 Timeseries data are set for auto granularity to stop abuse of the platform.
 
@@ -138,3 +148,7 @@ Timeseries data are set for auto granularity to stop abuse of the platform.
 - Less than 13 months range -> 1 day granularity;
 - Less than 40 days range -> 1 hour granularity;
 - Less than 2 days range -> 1 minute granularity;
+
+## License
+
+Grafana utils is licensed under the [Apache 2.0 License](./LICENSE).
