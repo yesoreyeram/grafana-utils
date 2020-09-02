@@ -1,10 +1,11 @@
 {
     "deno.enable": true,
     "cSpell.words": [
-        "vercel",
         "Deno",
-        "denolib",
         "datapoints",
-        "timeserie"
+        "denolib",
+        "sriram",
+        "timeserie",
+        "vercel"
     ]
 }

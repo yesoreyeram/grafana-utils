@@ -51,6 +51,7 @@ For more details about using this repo, refer the screenshots [here](https://git
 | Patterns([Foo,4,3,2,1,2,3][Bar,1,2,3,2])     | Repeat both the patterns over the time range                                                                                                                                                                                                                                              |
 | Expression(Foo,multiply:0.1,cos,abs,max:0.3) | Series foo which is equivalent of max(abs(cos(x\*0.1)),0.3) where x is the index of the datapoint starting from 0.<br/>Multiple expressions can be added. <br/>Valid expressions are random, add, minus, multiply, divide, abs, pow, sqrt, max, min, sin, cos, tan, ceil, floor and round.|
 | Matrix(Foo,10,[6,7,1,2,3,4,5][1,2,0,4,5])    | Create a series call Foo after the fist 10 timestamps. Rest of the series within square brackets are datapoints for each timestamp. Given example will have 2 timestamp points.                                                                                                           |
+| LCD(GRAFANA)                                 | Create series of datapoints representing word GRAFNA in LCD format.Spaces and alphabets are accepted. If you need space before/after the word prefix/suffix with *                                                                                                                        | 
 
 #### Special functions in expression
 
