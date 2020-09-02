@@ -7,6 +7,7 @@ import Pattern, { Patterns } from "./queries/Pattern.ts";
 import Expression from "./queries/Expression.ts";
 import Distribute from "./queries/Distribute.ts";
 import Matrix, { LCD } from "./queries/Matrix.ts";
+import Maths from "./queries/Maths.ts";
 
 interface getTimeSeriesResultsOptions {
   startTime: number;
@@ -55,6 +56,11 @@ export const getTimeSeriesResults = (
     );
   } else if (query.startsWith("Expression(") && query.endsWith(")")) {
     const expression = new Expression(query);
+    result = result.concat(
+      expression.toGrafanaSeriesList(options.startTime, options.endTime),
+    );
+  } else if (query.startsWith("Maths(") && query.endsWith(")")) {
+    const expression = new Maths(query);
     result = result.concat(
       expression.toGrafanaSeriesList(options.startTime, options.endTime),
     );
