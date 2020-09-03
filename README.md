@@ -42,7 +42,7 @@ _Note: Instead the hosted version, you can also use your own instance for produc
 * Custom timeseries patterns
 * CSV Datasource
 * Ad-hoc table data
-* LCD text
+* LED text
 
 For more details about the use cases, refer the screenshots [here](https://github.com/yesoreyeram/grafana-utils/issues/1).
 
@@ -71,7 +71,7 @@ For more details about the use cases, refer the screenshots [here](https://githu
 | Maths(Bar,sin($i deg) * pow($i,3))           | Return series called Bar using the math series `sin($i deg) * pow($i,3)` where $i is the index.                                                                                                                                                                                           |
 | Expression(Foo,multiply:0.1,cos,abs,max:0.3) | Series foo which is equivalent of max(abs(cos(x\*0.1)),0.3) where x is the index of the datapoint starting from 0.<br/>Multiple expressions can be added. <br/>Valid expressions are random, add, minus, multiply, divide, abs, pow, sqrt, max, min, sin, cos, tan, ceil, floor and round.|
 | Matrix(Foo,10,20,[6,7,1,2,3,4,5][1,2,0,4,5]) | Create a series call Foo after the fist 10 timestamps. shifted by 20 points down. Rest of the series within square brackets are datapoints for each timestamp. Given example will have 2 timestamp points.                                                                                |
-| LCD(GRAFANA,10)                              | Create series of datapoints representing word GRAFNA in LCD format.Spaces and alphabets are accepted. If you need space before/after the word prefix/suffix with *. Second parameter is y offset. In the example entire text is shifted by 10 points in y axis                            | 
+| LED(GRAFANA,10)                              | Create series of datapoints representing word GRAFANA in LED format.Spaces and alphabets are accepted. If you need space before/after the word prefix/suffix with *. Second parameter is y offset. In the example entire text is shifted by 10 points in y axis                            | 
 
 #### Special functions in expression
 

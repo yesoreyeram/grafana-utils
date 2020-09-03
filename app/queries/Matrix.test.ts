@@ -1,6 +1,6 @@
 import { NAMESPACE } from "./../../config/config.ts";
 import { assertEquals } from "./../../test_deps.ts";
-import Matrix, { LCD } from "./Matrix.ts";
+import Matrix, { LED } from "./Matrix.ts";
 import { timeSeriesResult } from "./../../types.d.ts";
 
 Deno.test({
@@ -58,9 +58,9 @@ Deno.test({
   },
 });
 Deno.test({
-  name: `${NAMESPACE}.TimeSeries.LCD.Basic`,
+  name: `${NAMESPACE}.TimeSeries.LED.Basic`,
   fn: () => {
-    const query = new LCD("LCD(* sriram *)");
+    const query = new LED("LED(* sriram *)");
     const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
     const endTime = new Date("2020-08-31T10:30:00.000Z").getTime();
     let series: timeSeriesResult[] = query.toGrafanaSeriesList(
@@ -85,9 +85,9 @@ Deno.test({
   },
 });
 Deno.test({
-  name: `${NAMESPACE}.TimeSeries.LCD.YOffset`,
+  name: `${NAMESPACE}.TimeSeries.LED.YOffset`,
   fn: () => {
-    const query = new LCD("LCD(* sriram *,-20)");
+    const query = new LED("LED(* sriram *,-20)");
     const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
     const endTime = new Date("2020-08-31T10:30:00.000Z").getTime();
     let series: timeSeriesResult[] = query.toGrafanaSeriesList(

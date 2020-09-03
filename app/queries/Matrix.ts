@@ -59,11 +59,11 @@ export default class Matrix extends Query {
     return result;
   }
 }
-export class LCD extends Query {
+export class LED extends Query {
   private letters: Matrix[];
   private yOffset: number;
   constructor(queryString: string) {
-    super("timeserie", queryString, { token: "LCD" });
+    super("timeserie", queryString, { token: "LED" });
     this.yOffset = +(this.queryObjects[1]) || 0;
     this.letters = this.queryObjects[0].split("").map((letter, index) => {
       let expression_matrix = "";

@@ -6,7 +6,7 @@ import Step from "./queries/Step.ts";
 import Pattern, { Patterns } from "./queries/Pattern.ts";
 import Expression from "./queries/Expression.ts";
 import Distribute from "./queries/Distribute.ts";
-import Matrix, { LCD } from "./queries/Matrix.ts";
+import Matrix, { LED } from "./queries/Matrix.ts";
 import Maths from "./queries/Maths.ts";
 
 interface getTimeSeriesResultsOptions {
@@ -49,10 +49,10 @@ export const getTimeSeriesResults = (
     result = result.concat(
       matrix.toGrafanaSeriesList(options.startTime, options.endTime),
     );
-  } else if (query.startsWith("LCD(") && query.endsWith(")")) {
-    const lcd = new LCD(query);
+  } else if (query.startsWith("LED(") && query.endsWith(")")) {
+    const led = new LED(query);
     result = result.concat(
-      lcd.toGrafanaSeriesList(options.startTime, options.endTime),
+      led.toGrafanaSeriesList(options.startTime, options.endTime),
     );
   } else if (query.startsWith("Expression(") && query.endsWith(")")) {
     const expression = new Expression(query);
