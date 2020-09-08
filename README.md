@@ -35,6 +35,8 @@ The backend server is hosted in the following url
 
 Above backend needs to be connected with [Grafana Simple JSON Datasource](https://grafana.com/grafana/plugins/grafana-simple-json-datasource). Example shown [here](https://github.com/yesoreyeram/grafana-utils/issues/1#issuecomment-685401416). Once datasource configured, you can start writing queries directly.
 
+You can also fork the repo and connect with [vercel](https://vercel.com/dashboard) to get your own instance of the URL.
+
 _Note: Instead the hosted version, you can also use your own instance for production purposes_
 
 ## Features
