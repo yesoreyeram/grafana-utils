@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macOS-latest]
-        deno-version: [1.3.1]
+        deno-version: [1.8.2]
       fail-fast: true
     steps:
       - name: Checkout code
