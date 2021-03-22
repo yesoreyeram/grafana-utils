@@ -12,29 +12,29 @@ export default class Expression extends Query {
     this.operations = this.queryObjects.slice(1);
   }
   toGrafanaSeriesList(startTime: number, endTime: number): timeSeriesResult[] {
-    let result: timeSeriesResult[] = [];
+    const result: timeSeriesResult[] = [];
     result.push({
       target: this.seriesName,
       datapoints: MOCK_DATA.getRandomWalkDataPoints(
         startTime,
         endTime,
         [0],
-        [0],
+        [0]
       ).map((item, index) => {
-        let value = this.operations.reduce(
+        const value = this.operations.reduce(
           (prev: number | null, curr: string, currentIndex: number) => {
-            let currentOperation = curr.split(":");
-            let operation = currentOperation[0];
+            const currentOperation = curr.split(":");
+            const operation = currentOperation[0];
             let value1 = 0;
             if (prev === null) {
               return prev;
             }
             switch (currentOperation[1]) {
               case "index":
-                value1 = +(index);
+                value1 = +index;
                 break;
               default:
-                value1 = currentOperation[1] ? +(currentOperation[1]) : 0;
+                value1 = currentOperation[1] ? +currentOperation[1] : 0;
                 break;
             }
             switch (operation) {
@@ -105,7 +105,7 @@ export default class Expression extends Query {
             }
             return prev;
           },
-          index,
+          index
         );
         return [value, item[1]];
       }),

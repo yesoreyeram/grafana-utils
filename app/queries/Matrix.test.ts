@@ -7,13 +7,13 @@ Deno.test({
   name: `${NAMESPACE}.TimeSeries.Matrix.Basic`,
   fn: () => {
     const query = new Matrix(
-      "Matrix(Foo,0,0,[1,2,3,4,5][1,2,0,4,5][1,2,,4,5])",
+      "Matrix(Foo,0,0,[1,2,3,4,5][1,2,0,4,5][1,2,,4,5])"
     );
     const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
     const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
-    let series: timeSeriesResult[] = query.toGrafanaSeriesList(
+    const series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
-      endTime,
+      endTime
     );
     assertEquals(series.length, 1);
     assertEquals(typeof series[0], "object");
@@ -34,13 +34,13 @@ Deno.test({
   name: `${NAMESPACE}.TimeSeries.Matrix.Offset`,
   fn: () => {
     const query = new Matrix(
-      "Matrix(Foo,3,0,[1,2,3,4,5][1,2,0,4,5][1,2,,4,5])",
+      "Matrix(Foo,3,0,[1,2,3,4,5][1,2,0,4,5][1,2,,4,5])"
     );
     const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
     const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
-    let series: timeSeriesResult[] = query.toGrafanaSeriesList(
+    const series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
-      endTime,
+      endTime
     );
     assertEquals(series.length, 1);
     assertEquals(typeof series[0], "object");
@@ -63,9 +63,9 @@ Deno.test({
     const query = new LED("LED(* sriram *)");
     const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
     const endTime = new Date("2020-08-31T10:30:00.000Z").getTime();
-    let series: timeSeriesResult[] = query.toGrafanaSeriesList(
+    const series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
-      endTime,
+      endTime
     );
     assertEquals(series.length, 10);
     assertEquals(typeof series[0], "object");
@@ -90,9 +90,9 @@ Deno.test({
     const query = new LED("LED(* sriram *,-20)");
     const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
     const endTime = new Date("2020-08-31T10:30:00.000Z").getTime();
-    let series: timeSeriesResult[] = query.toGrafanaSeriesList(
+    const series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
-      endTime,
+      endTime
     );
     assertEquals(series.length, 10);
     assertEquals(typeof series[0], "object");

@@ -9,9 +9,9 @@ Deno.test({
     const query = new RandomWalk("RandomWalk()");
     const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
     const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
-    let series: timeSeriesResult[] = query.toGrafanaSeriesList(
+    const series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
-      endTime,
+      endTime
     );
     assertEquals(series.length, 1);
     assertEquals(typeof series[0], "object");
@@ -30,9 +30,9 @@ Deno.test({
     const query = new RandomWalk("RandomWalk(3)");
     const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
     const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
-    let series: timeSeriesResult[] = query.toGrafanaSeriesList(
+    const series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
-      endTime,
+      endTime
     );
     assertEquals(series.length, 3);
     assertEquals(typeof series[2], "object");
@@ -51,9 +51,9 @@ Deno.test({
     const query = new RandomWalk("RandomWalk(3,Server)");
     const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
     const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
-    let series: timeSeriesResult[] = query.toGrafanaSeriesList(
+    const series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
-      endTime,
+      endTime
     );
     assertEquals(series.length, 3);
     assertEquals(typeof series[2], "object");
@@ -73,9 +73,9 @@ Deno.test({
     const query = new RandomWalk("RandomWalk(,Server)");
     const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
     const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
-    let series: timeSeriesResult[] = query.toGrafanaSeriesList(
+    const series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
-      endTime,
+      endTime
     );
     assertEquals(series.length, 1);
     assertEquals(typeof series[0], "object");
@@ -95,9 +95,9 @@ Deno.test({
     const query = new RandomWalk("RandomWalk(Server)");
     const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
     const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
-    let series: timeSeriesResult[] = query.toGrafanaSeriesList(
+    const series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
-      endTime,
+      endTime
     );
     assertEquals(series.length, 0);
   },

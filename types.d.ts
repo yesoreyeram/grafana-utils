@@ -7,7 +7,7 @@ export type GrafanaTableColumn = {
   text: string;
   type: string;
 };
-export type GrafanaTableRow = string | number | object;
+export type GrafanaTableRow = string | number | unknown;
 type tableResult = {
   columns: GrafanaTableColumn[];
   rows: GrafanaTableRow[];

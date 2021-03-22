@@ -5,10 +5,10 @@ import CustomQuery from "./Custom.ts";
 Deno.test({
   name: `${NAMESPACE}.Table.Custom.Basic`,
   fn: () => {
-    let query = new CustomQuery(
-      "custom(1,Country,India,England ,United States Of America)",
+    const query = new CustomQuery(
+      "custom(1,Country,India,England ,United States Of America)"
     );
-    let scenario = query.toGrafanaTable();
+    const scenario = query.toGrafanaTable();
     assertEquals(scenario.columns.length, 1);
     assertEquals(scenario.columns[0].text, "Country");
     assertEquals(scenario.columns[0].type, "string");
@@ -21,10 +21,10 @@ Deno.test({
 Deno.test({
   name: `${NAMESPACE}.Table.Custom.MultiColumn`,
   fn: () => {
-    let query = new CustomQuery(
-      "Custom(2,Country,City,India,Chennai,England,London,USA,New York,,Washington D.C.,Kenya)",
+    const query = new CustomQuery(
+      "Custom(2,Country,City,India,Chennai,England,London,USA,New York,,Washington D.C.,Kenya)"
     );
-    let scenario = query.toGrafanaTable();
+    const scenario = query.toGrafanaTable();
     assertEquals(scenario.columns.length, 2);
     assertEquals(scenario.columns[0].text, "Country");
     assertEquals(scenario.columns[0].type, "string");
@@ -41,10 +41,10 @@ Deno.test({
 Deno.test({
   name: `${NAMESPACE}.Table.Custom.FormattedColumn`,
   fn: () => {
-    let query = new CustomQuery(
-      "Custom(3,Country,Rank:number,City,India,1,Chennai,England,3,London)",
+    const query = new CustomQuery(
+      "Custom(3,Country,Rank:number,City,India,1,Chennai,England,3,London)"
     );
-    let scenario = query.toGrafanaTable();
+    const scenario = query.toGrafanaTable();
     assertEquals(scenario.columns.length, 3);
     assertEquals(scenario.columns[0].text, "Country");
     assertEquals(scenario.columns[0].type, "string");

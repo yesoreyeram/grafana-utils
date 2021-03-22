@@ -8,12 +8,12 @@ import { getCSVResults } from "./../data/csv.ts";
 export async function processData(
   targets: grafanaQueryTarget[],
   startTime: number,
-  endTime: number,
+  endTime: number
 ): Promise<queryResult[]> {
   const promises = targets.map(async (target) => {
-    let query = target.target || "";
+    const query = target.target || "";
     if (query.startsWith("CSV(") && query.endsWith(")")) {
-      let type = target.type;
+      const type = target.type;
       return getCSVResults([], query, { type, startTime, endTime });
     } else if (target.type === "timeserie") {
       return getTimeSeriesResults([], query, { startTime, endTime });
@@ -29,11 +29,10 @@ export const queryRoute = async (ctx: Context) => {
     const body = await ctx.request.body({ type: "json" }).value;
     const startTime = new Date(body.range.from).getTime();
     const endTime = new Date(body.range.to).getTime();
-    let results = await processData(body.targets, startTime, endTime);
+    const results = await processData(body.targets, startTime, endTime);
     ctx.response.body = results;
   } else {
     ctx.response.status = 404;
-    ctx.response.body =
-      `Requested route not found. User POST method instead.\n\n${BANNER}`;
+    ctx.response.body = `Requested route not found. User POST method instead.\n\n${BANNER}`;
   }
 };

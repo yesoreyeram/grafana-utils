@@ -6,6 +6,7 @@
         "denolib",
         "sriram",
         "timeserie",
+        "timeseries",
         "vercel"
     ]
 }

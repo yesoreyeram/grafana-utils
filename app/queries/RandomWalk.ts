@@ -12,10 +12,10 @@ export default class RandomWalk extends Query {
     this.seriesName = this.queryObjects[1] || "";
   }
   toGrafanaSeriesList(startTime: number, endTime: number): timeSeriesResult[] {
-    let result: timeSeriesResult[] = [];
+    const result: timeSeriesResult[] = [];
     for (let i = 0; i < this.count; i++) {
       let target = this.seriesName
-        ? (this.seriesName + ` ${i + 1}`)
+        ? this.seriesName + ` ${i + 1}`
         : sample(MOCK_DATA.RANDOM_WORDS) || "";
       if (!this.queryObjects[0]) {
         target = this.seriesName;

@@ -13,20 +13,20 @@ export default class Maths extends Query {
     this.query = this.queryObjects.slice(1).join(",");
   }
   toGrafanaSeriesList(startTime: number, endTime: number): timeSeriesResult[] {
-    let result: timeSeriesResult[] = [];
+    const result: timeSeriesResult[] = [];
     result.push({
       target: this.seriesName,
       datapoints: MOCK_DATA.getRandomWalkDataPoints(
         startTime,
         endTime,
         [0],
-        [0],
+        [0]
       ).map((item, index) => {
-        let query = this.query;
+        const query = this.query;
         let value = null;
         try {
           value = math.evaluate(query, {
-            "$i": index,
+            $i: index,
           });
         } catch (ex) {
           return [null, item[1]];

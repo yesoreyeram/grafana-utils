@@ -7,7 +7,7 @@ const getStepFromRange = (startTime: number, endTime: number): number => {
   const DAY = 24 * HOUR;
   const WEEK = 7 * DAY;
   const MONTH = 30 * DAY;
-  let range = endTime - startTime;
+  const range = endTime - startTime;
   let step = MINUTE;
   if (range > 13 * MONTH) {
     step = WEEK;
@@ -25,19 +25,16 @@ export const getRandomWalkDataPoints = (
   startTime: number,
   endTime: number,
   startFrom: number[] = [0, 20, 50, 70],
-  steps: number[] = [-1, 0, 1],
+  steps: number[] = [-1, 0, 1]
 ) => {
-  let step = getStepFromRange(startTime, endTime);
+  const step = getStepFromRange(startTime, endTime);
   const datapoints: dataPoint[] = [];
   let dataPointTime = startTime;
   let value = sample(startFrom);
   while (dataPointTime < endTime) {
-    let valueToAdd = datapoints.length === 0 ? 0 : sample(steps);
+    const valueToAdd = datapoints.length === 0 ? 0 : sample(steps);
     value += valueToAdd;
-    datapoints.push([
-      value,
-      startTime + (datapoints.length * step),
-    ]);
+    datapoints.push([value, startTime + datapoints.length * step]);
     dataPointTime = dataPointTime + step;
   }
   return datapoints;

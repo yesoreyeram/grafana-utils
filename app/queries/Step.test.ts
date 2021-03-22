@@ -9,9 +9,9 @@ Deno.test({
     const query = new Step("Step()");
     const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
     const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
-    let series: timeSeriesResult[] = query.toGrafanaSeriesList(
+    const series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
-      endTime,
+      endTime
     );
     assertEquals(series.length, 1);
     assertEquals(typeof series[0], "object");
@@ -32,9 +32,9 @@ Deno.test({
     const query = new Step("Step(7)");
     const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
     const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
-    let series: timeSeriesResult[] = query.toGrafanaSeriesList(
+    const series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
-      endTime,
+      endTime
     );
     assertEquals(series.length, 1);
     assertEquals(typeof series[0], "object");
@@ -55,9 +55,9 @@ Deno.test({
     const query = new Step("Step(7,Rainbow )");
     const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
     const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
-    let series: timeSeriesResult[] = query.toGrafanaSeriesList(
+    const series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
-      endTime,
+      endTime
     );
     assertEquals(series.length, 1);
     assertEquals(typeof series[0], "object");
@@ -79,9 +79,9 @@ Deno.test({
     const query = new Step("Step(5,Rainbow,10)");
     const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
     const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
-    let series: timeSeriesResult[] = query.toGrafanaSeriesList(
+    const series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
-      endTime,
+      endTime
     );
     assertEquals(series.length, 1);
     assertEquals(typeof series[0], "object");

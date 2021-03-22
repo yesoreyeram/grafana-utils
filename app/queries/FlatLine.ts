@@ -12,14 +12,14 @@ export default class FlatLine extends Query {
     this.seriesName = this.queryObjects[1] || sample(MOCK_DATA.RANDOM_WORDS);
   }
   toGrafanaSeriesList(startTime: number, endTime: number): timeSeriesResult[] {
-    let result: timeSeriesResult[] = [];
+    const result: timeSeriesResult[] = [];
     result.push({
       target: this.seriesName,
       datapoints: MOCK_DATA.getRandomWalkDataPoints(
         startTime,
         endTime,
         [this.startFrom],
-        [0],
+        [0]
       ),
     });
     return result;

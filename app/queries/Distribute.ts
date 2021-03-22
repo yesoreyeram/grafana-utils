@@ -11,8 +11,8 @@ export default class Distribute extends Query {
     this.seriesNames = this.queryObjects.slice(1);
   }
   toGrafanaSeriesList(startTime: number, endTime: number): timeSeriesResult[] {
-    let result: timeSeriesResult[] = [];
-    const startValue = Math.round(this.TotalValue / (this.seriesNames.length));
+    const result: timeSeriesResult[] = [];
+    const startValue = Math.round(this.TotalValue / this.seriesNames.length);
     this.seriesNames.forEach((seriesName: string) => {
       result.push({
         target: seriesName,
@@ -20,7 +20,7 @@ export default class Distribute extends Query {
           startTime,
           endTime,
           [startValue],
-          [-3, -2, -1, 0, 1, 2, 3],
+          [-3, -2, -1, 0, 1, 2, 3]
         ),
       });
     });

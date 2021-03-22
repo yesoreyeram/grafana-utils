@@ -9,9 +9,9 @@ Deno.test({
     const query = new Pattern("Pattern(Foo,1,2,3,2)");
     const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
     const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
-    let series: timeSeriesResult[] = query.toGrafanaSeriesList(
+    const series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
-      endTime,
+      endTime
     );
     assertEquals(series.length, 1);
     assertEquals(typeof series[0], "object");
@@ -34,9 +34,9 @@ Deno.test({
     const query = new Patterns("Patterns([Foo,1,2,3,2][Bar,3,2,1,2])");
     const startTime = new Date("2020-08-31T09:20:00.000Z").getTime();
     const endTime = new Date("2020-08-31T09:30:00.000Z").getTime();
-    let series: timeSeriesResult[] = query.toGrafanaSeriesList(
+    const series: timeSeriesResult[] = query.toGrafanaSeriesList(
       startTime,
-      endTime,
+      endTime
     );
     assertEquals(series.length, 2);
     assertEquals(typeof series[0], "object");

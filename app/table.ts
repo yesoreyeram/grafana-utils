@@ -2,12 +2,9 @@ import { queryResult } from "./../types.d.ts";
 import * as MOCK_DATA from "./../data/index.ts";
 import CustomQuery from "./queries/Custom.ts";
 
-export const getTableResults = (
-  result: queryResult[],
-  query = "",
-) => {
+export const getTableResults = (result: queryResult[], query = "") => {
   if (query.toLowerCase().startsWith("custom(") && query.endsWith(")")) {
-    let qo = new CustomQuery(query);
+    const qo = new CustomQuery(query);
     result.push(qo.toGrafanaTable());
   } else {
     result.push({

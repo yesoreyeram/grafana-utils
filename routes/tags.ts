@@ -2,7 +2,7 @@ import { Context } from "./../deps.ts";
 import { BANNER } from "./../config/config.ts";
 import * as MOCK_DATA from "./../data/index.ts";
 
-export const tagKeysRoute = async (ctx: Context) => {
+export const tagKeysRoute = (ctx: Context) => {
   ctx.response.body = ["Servers", "Teams"].map((text: string) => {
     return {
       type: "string",
@@ -28,7 +28,6 @@ export const tagValuesRoute = async (ctx: Context) => {
     }
   } else {
     ctx.response.status = 404;
-    ctx.response.body =
-      `Requested route not found. User POST method instead.\n\n${BANNER}`;
+    ctx.response.body = `Requested route not found. User POST method instead.\n\n${BANNER}`;
   }
 };
